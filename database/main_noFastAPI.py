@@ -11,7 +11,7 @@ cache_location = 'cache/'
 caption_pool_location = 'cache/caption_pool/'
 dictionary_file = 'cache/dictionary.json'
 official_captions_file = 'cache/official_captions.txt'
-official_captions_set = set()
+official_captions_set = set(['dog'])
 dictionary = {}
 
 
@@ -82,24 +82,9 @@ def post(data: Data):
 
         # Update official_captions file and caption pool
         if caption in official_captions_set:
-            # Add image name to caption.json file
-            with open(caption_pool_location + caption + '.json', 'a+') as caption_dot_json:
-                # file_data = json.loads(caption_dot_json)
-                pass
-                # file_data[data.uuid] = confidence;
-                # file_data = sorted(file_data, lambda x:x[1])
-        else:
-            # Add caption to official_caption_set and update file
-            official_captions_set.add(caption)
-
-            # Overwrite official_captions_file with current official_captions_set state
-            ocf = open(official_captions_file, 'w')
-            ocf.write(str('\n'.join(sorted(official_captions_set))))
-            ocf.close()
-
-            # Create caption.json file and add file name
-            with open(caption_pool_location + caption + '.json', 'w') as caption_dot_json:
-                caption_dot_json.write({json.dumps([data.uuid, confidence])})
+            # read caption.json file line by line into a list, split each line by ' '
+            # TODO
+            pass
 
 
 if __name__ == "__main__":
@@ -111,7 +96,3 @@ if __name__ == "__main__":
         data = Data(data['original_name'], data['uuid'],
                     data['image'], data['image_shape'], data['captions'])
         post(data)
-
-    # cv.imshow('image', image)
-    # cv.waitKey(0)
-    # cv.destroyAllWindows()
