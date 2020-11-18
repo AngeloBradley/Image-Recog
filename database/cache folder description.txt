@@ -42,9 +42,21 @@ a list of all of the caption.json files in the caption pool.
 The caption pool is a collection of caption.json files. 
 
 -------------------------------------------------------->> caption.json <<-----------------------------------------------------------------
-The caption.json files contain a single list of all of the images that arrived at the database with that specific caption as at least one of
-its captions. For instance, dog.json will contain a list of all of the images that arrived with a dog object caption among its captions. Images
-will, of course, possibly be on multiple lists or all of them. Just depends on what the ai detected. 
+The caption.json file is a list of image names and the confidence level of the ai that the image actually contains the object associated with
+the caption. When a new image is added, the list is read into a priority heap and the new image is inserted with it's confidence level as the
+priority. 
 
-Using the example from above: if a user searches for "dog", the lists found in both dog.json and puppy.json will be iterated over and stored in a set
+If an image has multiple instances of an object, say several dogs, the image will only added to the list once and the confidence level will be set
+to the highest confidence level among of the multiple instances. For instance:
+
+image "image.jpg" contains:
+[
+    [dog1, .0437],
+    [dog2, .5892],
+    [dog3, .1048]
+]
+
+The dog.json file will be updated with the image name "image.jpg" and the confidence level will be set to .5892.
+
+Using the dog/puppy example from above: if a user searches for "dog", the lists found in both dog.json and puppy.json will be iterated over and stored in a set
 for duplicate avoidance.
