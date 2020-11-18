@@ -7,7 +7,10 @@ import heapq
 import sys
 
 cache_location = 'cache/'
-offical_captions = set()
+caption_pool_location = 'cache/caption_pool/'
+dictionary_file = 'cache/dictionary.json'
+official_captions_file = 'cache/official_captions.txt'
+official_captions_set = set()
 dictionary = {}
 
 @dataclass
@@ -42,10 +45,11 @@ def post(data: Data):
     # caption handler
     caption_list = data.captions
 
-    # sys.exit()
-    # captions_data -> [caption, confidence]
+    # caption_list format -> [caption_data1, caption_data2...]
+    # caption_data format -> [caption, confidence]
 
     for caption_data in caption_list:
+        
         # Update the dictionary
         caption = caption_data[0]
         try:
@@ -63,25 +67,32 @@ def post(data: Data):
             dictionary[caption] = set(caption)
             # generate synonyms for the caption and add to dictionary
             synomyns = PyDictionary().synonym(caption)
-            
-            for synonym in synomyns:
-                if synonym in dictionary:
-                    # if the synonym is in the dictionary, attempt to
-                    # add caption to the word's caption set
-                    dictionary[synonym].add(caption)
-                else:
-                    # if the synonym is not in the dictionary,
-                    # map the synonym to a set containing the caption
-                    dictionary[synonym] = set(caption)
+            if synomyns is not None:
+                for synonym in synomyns:
+                    if synonym in dictionary:
+                        # if the synonym is in the dictionary, attempt to
+                        # add caption to the word's caption set
+                        dictionary[synonym].add(caption)
+                    else:
+                        # if the synonym is not in the dictionary,
+                        # map the synonym to a set containing the caption
+                        dictionary[synonym] = set(caption)
 
+        # Update official_captions file
+        if caption in official_captions_set:
+            continue
+        else:
+            official_captions_set.add(caption)
 
-
+            ocf = open(official_captions_file, 'w')
+            data = ocf.write(str('\n'.join(sorted(official_captions_set))))
+            ocf.close()
 
 if __name__ == "__main__":
     image = cv.imread('../Image Repository/image.jpg')
     with open('cache/5ad38c9f-1dcf-47b8-b21b-97c171205cac.json') as file:
         data = json.load(file)
-        data['captions'] = [['cat', .345234],['dog', .2586234]]
+        data['captions'] = [['fire hydrant', .345234],['bird', .2586234],['giraffe', .23532424]]
         data = Data(data['original_name'], data['uuid'], data['image'], data['image_shape'], data['captions'])
         post(data)
 
