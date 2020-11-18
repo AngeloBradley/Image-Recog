@@ -5,7 +5,6 @@ import cv2 as cv
 import json
 import requests
 import time
-import sys
 
 database = {}
 to_be_processed = []
@@ -21,7 +20,7 @@ def get_image_list():
             if file[file.rfind('.'):] in IMAGE_TYPES:
                 if file not in database:
                     to_be_processed.append(file)
-                    break
+                    
 
 
 def image_processor():
