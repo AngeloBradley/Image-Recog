@@ -1,3 +1,50 @@
 Cache Folder Description
 
+-------------------------------------------------------->> dictionary.json <<--------------------------------------------------------
 
+The dictionary.json file a copy of the database's dictionary dict. The ai is limited in it's ability to detect only a 
+certain subset of objects and will only label things with the categories found here: 
+https://github.com/facebookresearch/detectron2/blob/60d7a1fd33cc48e58968659cd3301f3300b2786b/detectron2/data/datasets/builtin_meta.py
+
+To make searching a little easier (ie. the user doesn't necessarily have to know the valid search terms), each caption found will be passed
+to a PyDictionary object so that synonyms for that caption can also be used in a search query. The dictionary is structured as follows:
+
+{
+    word: [captions]
+}
+
+The word is either a caption or a synonym for a caption. Both will be mapped to the same caption. For instance:
+
+-> if the database receives a caption "dog", the PyDictionary will probably return the word "puppy" as a synonym
+
+{
+    dog:[dog],
+    puppy:[dog]
+}
+
+Using either search term will result in all images containing dogs.
+
+-> let's say the database receives a caption "puppy" next and the PyDictionary returns the word "dog" as a synonym.
+
+{
+    dog:[dog, puppy]
+    puppy:[dog, puppy]
+}
+
+Now, using either search term will result in all images containing dogs and puppies 
+(assuming either caption is ever associated with an image but the other caption is not lol)
+
+-------------------------------------------------------->> official_captions.txt <<--------------------------------------------------------
+The official_captions.txt file just keeps track of all of the captions that the database has received. It, by nature, also represents 
+a list of all of the caption.json files in the caption pool.
+
+-------------------------------------------------------->> caption_pool <<-----------------------------------------------------------------
+The caption pool is a collection of caption.json files. 
+
+-------------------------------------------------------->> caption.json <<-----------------------------------------------------------------
+The caption.json files contain a single list of all of the images that arrived at the database with that specific caption as at least one of
+its captions. For instance, dog.json will contain a list of all of the images that arrived with a dog object caption among its captions. Images
+will, of course, possibly be on multiple lists or all of them. Just depends on what the ai detected. 
+
+Using the example from above: if a user searches for "dog", the lists found in both dog.json and puppy.json will be iterated over and stored in a set
+for duplicate avoidance.
