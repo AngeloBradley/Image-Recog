@@ -1,0 +1,1 @@
+{"original_name": "000000433374.jpg", "uuid": "225e249c-6da3-4df6-ad71-a910fbe7ece0", "image_shape": [428, 640, 3]}

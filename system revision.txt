@@ -1,0 +1,51 @@
+Program 1 (New File Detection)
+-- iterates over the initial directory looking for new files
+-- extracts metadata and converts image into a serializable format for transmission
+-- runs 24/7
+-- child threads receive ok from PG2
+-- if the ok is never received or not received in x amount of time, the child thread does not add the image into the processed list and the file is picked up again the next time pg1 iterates over the directory
+
+ ** Iterate over database and store entries in python dict structure. Iterates over files in directory, comparing found names to names in databaseAsDict. If the file name is NOT in the database, PG1 will create a child thread that will extract the metadata from the file, convert the image into a serializable form and attempt to forward this information to PG2. If PG2 responds with an OK, the child thread will add the file to the database and exit. If PG2 responds with anything other an "ok", including no response at all after X time units, the thread will NOT update the database, and close.
+
+ 
+
+Program 2 (Image Data Processing)
+-- receives file data from PG1
+-- stores files locally before processing
+-- processes files for the AI servers
+-- hands required process data to AI servers
+-- receives captions from AI servers
+-- packages the image, captions and metadata
+-- forwards to database
+-- receives OK (post-database addition) before closing child thread
+
+** PG2 receives the data from PG1. Once the data is received, PG2 will signal to PG1 via a code (0 for good, 1 for try again, -1 for error, stop trying). The data will then be stored in a queue for processing. When the data has made it to the top of the queue, it will be popped from the queue and a child(1L) process will spawn. This process will immediately spawn another child(2L) that will write the image to disk. This child(1L) will then perform some processing on the data that is required by both AIs (ie. converting the string to a numpy array or something) and at that point, it will spawn two more children(2L). Each of these children(2L) will perform some AI specific processing and then forward the processed data to its respective AI server (2.1 or 2.2). Each child will then wait until it receives captions from the AI server and will store their respective set of captions in a data structure owned by the 1L child (their parent). Once the 1L child has received all captions, it will structure the aggregate data (image, captions, metadata, etc) and will attempt to forward the data to PG3 via it's own socket connection. If the attempt passes, the child will add the image UUID to a "processed" list or database and close itself. If the attempt fails, the child will pass the structure to some container owned by the parent and the parent can try to send the structure to PG3 at a later time.
+
+ 
+Simple Load Balancer
+-- ???
+
+ 
+
+Program 2.1 (Text Detection AI)
+-- receives image data from PG2
+-- applies OpenCV's EAST AI to detect text in image
+-- packages captions and labels as belonging to image X.jpg
+-- sends this package to PG2
+
+** PG 2.1 will implement OpenCV's EAST text detection algorithm to identify text found in the image. It will store found text as captions and forward them to PG2. If using a load balancer, 2.1 may do something to signal that it is available. 
+
+
+Program 2.2 (Object Detection AI)
+-- receives image data from PG2
+-- applies Detectron2 AI to detect objects in image
+-- packages captions and labels as belonging to image X.jpg
+-- sends this package to PG2
+
+--
+
+
+Program 3 (Primary Database)
+-- receives data package from PG2
+-- stores data in database
+-- sends OK to PG2

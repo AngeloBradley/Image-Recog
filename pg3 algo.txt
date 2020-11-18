@@ -1,0 +1,41 @@
+take the search term(s) -> retrieve the matching json file(s) and iterate over the contents storing the image names in a set to prevent duplicates -> prepare to send back to web gui
+
+when a request arrives from the web gui:
+
+	for term in search_terms:
+		try:
+			open corresponding search_term.json (caption.json) file
+			iterate over the list of associated images and add each one to a set object
+		except:
+			try:
+				for syn in possible_synonyms:
+					try:
+						open syn.json
+						iterate over the list of associated images and add each one to a set object
+					except:
+						continue
+			except:
+				return []
+
+ 
+
+ when an image arrives from pg2:
+	add the image and the metadata file to the local cache
+		for caption in captions:
+			if caption.json does not exist:
+				synonyms = PyDictionary.synonym(term)
+				create the file and add the image name (NOT THE PATH)
+			else
+				read in the json file
+				add the new uuid to data
+				rewrite the file
+
+ dictionary -> term : list of official captions associated with that word
+
+ 
+
+def update_dictionary(caption):
+	dictionary[caption] = caption
+	synonyms = PyDictionary.synonym(term)
+	for syn in synonyms:
+		dictionary[syn].append(caption) 
