@@ -82,8 +82,16 @@ def post(data: Data):
 
         # Update official_captions file and caption pool
         if caption in official_captions_set:
-            # read caption.json file line by line into a list, split each line by ' '
-            # TODO
+            # read caption.json file line by line into a list, split each line into list by ' '
+            # add new data to list
+            # sort using confidence
+            # print back to file line by line ' '.join(caption_data) -> "image_name confidence\n"
+            # close file
+            pass
+        else:
+            # create new caption.json file
+            # write caption info in the form -> "image_name confidence\n"
+            # close file
             pass
 
 
