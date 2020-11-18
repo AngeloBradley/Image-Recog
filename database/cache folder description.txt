@@ -1,13 +1,12 @@
-Cache Folder Description
-
 -------------------------------------------------------->> dictionary.json <<--------------------------------------------------------
 
 The dictionary.json file a copy of the database's dictionary dict. The ai is limited in it's ability to detect only a 
 certain subset of objects and will only label things with the categories found here: 
 https://github.com/facebookresearch/detectron2/blob/60d7a1fd33cc48e58968659cd3301f3300b2786b/detectron2/data/datasets/builtin_meta.py
 
-To make searching a little easier (ie. the user doesn't necessarily have to know the valid search terms), each caption found will be passed
-to a PyDictionary object so that synonyms for that caption can also be used in a search query. The dictionary is structured as follows:
+To make searching a little easier (ie. the user doesn't necessarily have to know the valid search terms), each caption found will be 
+passed to a PyDictionary object so that synonyms for that caption can also be used in a search query. The dictionary is structured as 
+follows:
 
 {
     word: [captions]
@@ -46,8 +45,8 @@ The caption.json file is a list of image names and the confidence level of the a
 the caption. When a new image is added, the list is read into a priority heap and the new image is inserted with it's confidence level as the
 priority. 
 
-If an image has multiple instances of an object, say several dogs, the image will only added to the list once and the confidence level will be set
-to the highest confidence level among of the multiple instances. For instance:
+If an image has multiple instances of an object, say several dogs, the image will only added to the list once and the confidence level will be 
+set to the highest confidence level among of the multiple instances. For instance:
 
 image "image.jpg" contains:
 [
@@ -58,5 +57,7 @@ image "image.jpg" contains:
 
 The dog.json file will be updated with the image name "image.jpg" and the confidence level will be set to .5892.
 
-Using the dog/puppy example from above: if a user searches for "dog", the lists found in both dog.json and puppy.json will be iterated over and stored in a set
-for duplicate avoidance.
+Using the dog/puppy example from above: if a user searches for "dog", the lists found in both dog.json and 
+puppy.json will be iterated over and stored in a set for duplicate avoidance.
+
+
