@@ -12,7 +12,7 @@ caption_pool_location = 'cache/caption_pool/'
 dictionary_file = 'cache/dictionary.json'
 official_captions_file = 'cache/official_captions.txt'
 official_captions_set = set(['dog', 'fire hydrant', 'bird', 'giraffe'])
-dictionary = {}
+dictionary = dict()
 
 
 @dataclass
@@ -30,33 +30,39 @@ class Data:
     #     self.image_shape = data['image_shape']
     #     self.captions = data['captions']
 
-def add_synonyms_to_dictionary(caption, orignal_caption=None):
+def add_synonyms(caption, original_caption=None):
+    synomyns = PyDictionary().synonym(caption)
+    if synomyns is not None:
+        for synonym in synomyns:
+            if synonym in dictionary:
+                # if the synonym is in the dictionary, attempt to
+                # add caption to the word's caption set
+                # set synonym to lowercase so search is not case sensitive
+                if original_caption not in dictionary[synonym]:
+                    dictionary[synonym.lower()].append(original_caption)
+            else:
+                # if the synonym is not in the dictionary,
+                # map the synonym to a set containing the caption
+                # set synonym to lowercase so search is not case sensitive
+                dictionary[synonym.lower()] = [original_caption]
+    else:
+        #do nothing
+        pass
+
+def add_synonyms_to_dictionary(caption, original_caption=None):
     if type(caption) == type([]):
         for caption_term in caption:
-            synomyns = PyDictionary().synonym(caption_term)
-            if synomyns is not None:
-                for synonym in synomyns:
-                    if synonym in dictionary:
-                        # if the synonym is in the dictionary, attempt to
-                        # add caption to the word's caption set
-                        dictionary[synonym].add(orignal_caption)
-                    else:
-                        # if the synonym is not in the dictionary,
-                        # map the synonym to a set containing the caption
-                        dictionary[synonym] = set(orignal_caption)
+            add_synonyms(caption_term, original_caption=original_caption)
     else:
         # generate synonyms for the caption and add to dictionary
-            synomyns = PyDictionary().synonym(caption)
-            if synomyns is not None:
-                for synonym in synomyns:
-                    if synonym in dictionary:
-                        # if the synonym is in the dictionary, attempt to
-                        # add caption to the word's caption set
-                        dictionary[synonym].add(caption)
-                    else:
-                        # if the synonym is not in the dictionary,
-                        # map the synonym to a set containing the caption
-                        dictionary[synonym] = set(caption)
+        add_synonyms(caption, original_caption=caption)
+
+def write_dictionary_to_disk():
+    with open(dictionary_file, 'r+') as d:
+        d.truncate()
+
+    with open(dictionary_file, 'w') as d:
+        d.write(json.dumps(dictionary))
 
 def post(data: Data):
     # data_dict = data.dict()
@@ -89,11 +95,11 @@ def post(data: Data):
                 landed in the library as a synonym and is mapped only to other
                 captions.
             '''
-            dictionary[caption].add(caption)
+            dictionary[caption].append(caption)
 
         except KeyError:
             # add caption to dictionary and map to set containing itself
-            dictionary[caption] = set(caption)
+            dictionary[caption] = [caption]
             # check caption for spaces or hyphens
             # code expects there to be only dashes OR spaces, not both
             caption_char_set = set(caption)
@@ -109,6 +115,8 @@ def post(data: Data):
             else:
                 add_synonyms_to_dictionary(caption)
 
+        write_dictionary_to_disk()
+
         # Update official_captions file and caption pool
         if caption in official_captions_set:
             # read caption.text file line by line into a list, split each line into list by ' '
@@ -119,7 +127,9 @@ def post(data: Data):
 
             caption_dot_text_data = []
             for line in lines:
-                l = line.split(' ')
+                print("line: ", line)
+                l =[x.strip() for x in line.split(' ')]
+                print(l)
                 l[1] = float(l[1])
                 caption_dot_text_data.append(l)
 
@@ -213,13 +223,13 @@ def search(query):
 
 
 if __name__ == "__main__":
-    # image = cv.imread('../Image Repository/image.jpg')
-    # with open('cache/5ad38c9f-1dcf-47b8-b21b-97c171205cac.json') as file:
-    #     data = json.load(file)
-    #     data['captions'] = [['fire hydrant', .645645745], [
-    #         'bird', .45734953], ['giraffe', .23425325], ['dog', .45757456]]
-    #     data = Data(data['original_name'], data['uuid'],
-    #                 data['image'], data['image_shape'], data['captions'])
-    #     post(data)
+    image = cv.imread('../Image Repository/image.jpg')
+    with open('cache/5ad38c9f-1dcf-47b8-b21b-97c171205cac.json') as file:
+        data = json.load(file)
+        data['captions'] = [['fire hydrant', .645645745], [
+            'bird', .45734953], ['giraffe', .23425325], ['dog', .45757456]]
+        data = Data(data['original_name'], data['uuid'],
+                    data['image'], data['image_shape'], data['captions'])
+        post(data)
 
-    search("dog ")
+    # search("dog ")
