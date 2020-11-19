@@ -35,15 +35,14 @@ Now, using either search term will result in all images containing dogs and pupp
 
 -------------------------------------------------------->> official_captions.txt <<--------------------------------------------------------
 The official_captions.txt file just keeps track of all of the captions that the database has received. It, by nature, also represents 
-a list of all of the caption.json files in the caption pool.
+a list of all of the caption.txt files in the caption pool.
 
 -------------------------------------------------------->> caption_pool <<-----------------------------------------------------------------
-The caption pool is a collection of caption.json files. 
+The caption pool is a collection of caption.txt files. 
 
--------------------------------------------------------->> caption.json <<-----------------------------------------------------------------
-The caption.json file is a list of image names and the confidence level of the ai that the image actually contains the object associated with
-the caption. When a new image is added, the list is read into a priority heap and the new image is inserted with it's confidence level as the
-priority. 
+-------------------------------------------------------->> caption.txt <<-----------------------------------------------------------------
+The caption.txt file is a list of image names and the confidence level of the ai that the image actually contains the object associated with
+the caption. When a new image is added, the list is again sorted by confidence level
 
 If an image has multiple instances of an object, say several dogs, the image will only added to the list once and the confidence level will be 
 set to the highest confidence level among of the multiple instances. For instance:
