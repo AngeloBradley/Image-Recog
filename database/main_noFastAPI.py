@@ -82,7 +82,7 @@ def post(data: Data):
 
         # Update official_captions file and caption pool
         if caption in official_captions_set:
-            # read caption.json file line by line into a list, split each line into list by ' '
+            # read caption.text file line by line into a list, split each line into list by ' '
             caption_dot_text = open(caption_pool_location + caption + '.txt', 'r')
             lines = caption_dot_text.readlines()
             caption_dot_text.close()
@@ -99,11 +99,12 @@ def post(data: Data):
             # sort using confidence
             caption_dot_text_data = [[x, str(y)] for x,y in sorted(caption_dot_text_data, key= lambda x:x[1])]
 
-            # print back to file line by line ' '.join(caption_data) -> "image_name confidence\n"
-            caption_dot_text = open(caption_pool_location + caption + '.txt', 'w')
-            caption_dot_text.write('')
+            # ditch original file contents
+            caption_dot_text = open(caption_pool_location + caption + '.txt', 'r+')
+            caption_dot_text.truncate()
             caption_dot_text.close()
 
+            # print back to file line by line ' '.join(caption_data) -> "image_name confidence\n"
             caption_dot_text = open(caption_pool_location + caption + '.txt', 'a')
             for item in caption_dot_text_data:
                 print(item)
@@ -112,10 +113,12 @@ def post(data: Data):
             caption_dot_text.close()
             pass
         else:
-            # create new caption.json file
-
+            # create new caption.txt file
+            caption_dot_text = open(caption_pool_location + caption + '.txt', 'w')
             # write caption info in the form -> "image_name confidence\n"
+            caption_dot_text.write(data.uuid + ' ' + str(confidence))
             # close file
+            caption_dot_text.close()
             pass
 
 
