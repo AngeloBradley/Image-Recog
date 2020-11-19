@@ -4,14 +4,14 @@ from PyDictionary import PyDictionary
 import cv2 as cv
 import numpy as np
 import json
-import heapq
-import sys
+import os
+import fnmatch
 
 cache_location = 'cache/'
 caption_pool_location = 'cache/caption_pool/'
 dictionary_file = 'cache/dictionary.json'
 official_captions_file = 'cache/official_captions.txt'
-official_captions_set = set(['dog', 'fire hydrant', 'bird', 'giraffe'])
+official_captions_set = set()
 dictionary = dict()
 
 
@@ -171,7 +171,7 @@ def post(data: Data):
             caption_dot_text = open(
                 caption_pool_location + caption + '.txt', 'w')
             # write caption info in the form -> "image_name confidence\n"
-            caption_dot_text.write(data.uuid + ' ' + str(confidence))
+            caption_dot_text.write(data.uuid + data.original_name[data.original_name.find('.'):]+ ' ' + str(confidence))
             # close file
             caption_dot_text.close()
 
@@ -214,7 +214,7 @@ def search(query):
 
         try:
             valid_terms = dictionary[term]
-            print(valid_terms)
+            # print(valid_terms)
 
             for v_term in valid_terms:
 
@@ -238,6 +238,24 @@ def search(query):
 
     return search_results
 
+
+def load_dictionary_from_disk():
+    global dictionary
+
+    with open(dictionary_file, 'r') as df:
+        dictionary = json.load(df)
+
+def transmit_images_to_gui(search_results):
+    #iterate over search_results and load images
+    for result in search_results:
+        image = cv.imread(result)
+
+        #convert to binary and then to base64
+        
+    #initiate a transmission for every image
+    
+    pass
+
 if __name__ == "__main__":
     image = cv.imread('../Image Repository/image.jpg')
     with open('cache/5ad38c9f-1dcf-47b8-b21b-97c171205cac.json') as file:
@@ -248,5 +266,6 @@ if __name__ == "__main__":
                     data['image'], data['image_shape'], data['captions'])
         post(data)
 
-    search_results = search("fire hydrant")
-    print(search_results)
+    # load_dictionary_from_disk()
+    # search_results = search("dog fire hydrant")
+    # print(search_results)

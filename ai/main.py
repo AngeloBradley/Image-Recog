@@ -5,9 +5,10 @@ import cv2 as cv
 import numpy as np
 import json
 import obj_detect
+import base64
 
 app = FastAPI()
-repo = "./Processing Repo/"
+repo = "temp/"
 
 
 class Data(BaseModel):
@@ -23,15 +24,16 @@ async def post(data: Data):
 
     # save image to local repo
     image = np.asarray(data.image)
-    cv.imwrite(repo + data.uuid + ".jpg", image)
+    image_path = repo + data.uuid + ".jpg"
+    cv.imwrite(image_path, image)
 
     # send image to data analysis models
 
     # object detection
     captions = []
-    image = cv.imread(image)
+    image = cv.imread(image_path)
     captions.append(obj_detect.get_object_captions(image))
-
+    print(captions)
     # text detection
     
 

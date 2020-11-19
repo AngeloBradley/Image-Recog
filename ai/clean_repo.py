@@ -1,6 +1,6 @@
 import os
 
-image_repo = '../Image Repository/'
+image_repo = '../../Image Repository/'
 IMAGE_TYPES = ('.jpg', '.jpeg', '.tiff', '.png')
 
 for root, dirs, files in os.walk(image_repo):

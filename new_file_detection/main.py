@@ -5,6 +5,7 @@ import cv2 as cv
 import json
 import requests
 import time
+import base64
 
 database = {}
 to_be_processed = []
@@ -15,6 +16,7 @@ IMAGE_TYPES = ('.jpeg', '.jpg', '.tiff')
 
 def get_image_list():
     # search for new files
+    print('gathering new images')
     for root, dirs, files, in walk(repo):
         for file in files:
             if file[file.rfind('.'):] in IMAGE_TYPES:
@@ -24,19 +26,21 @@ def get_image_list():
 
 
 def image_processor():
-    for i in range(len(to_be_processed)):
+    print('processing new images')
+    # for i in range(len(to_be_processed)):
+    for i in range(10):
         uuid = str(uuid4())
         orig_name = to_be_processed[i]
         path = repo + to_be_processed[i]
         image = cv.imread(path)
         image_shape = image.shape
-        image_as_text = image.tolist()
+        image = image.tolist()
 
         # gather data, convert to JSON format
         image_data = json.dumps({
             'original_name': orig_name,
             'uuid': uuid,
-            'image': image_as_text,
+            'image': image,
             'image_shape': image_shape
         })
 
@@ -56,6 +60,7 @@ def image_processor():
 
 
 def send_to_ai():
+    print('sending processed images to ai')
     for image_data in to_be_processed:
         response = requests.post('http://localhost:8080', image_data)
         # <Response 200> is the one you want
