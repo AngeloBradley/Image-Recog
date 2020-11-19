@@ -30,6 +30,7 @@ class Data:
     #     self.image_shape = data['image_shape']
     #     self.captions = data['captions']
 
+
 def add_synonyms(caption, original_caption=None):
     synomyns = PyDictionary().synonym(caption)
     if synomyns is not None:
@@ -46,16 +47,22 @@ def add_synonyms(caption, original_caption=None):
                 # set synonym to lowercase so search is not case sensitive
                 dictionary[synonym.lower()] = [original_caption]
     else:
-        #do nothing
+        # do nothing
         pass
+
 
 def add_synonyms_to_dictionary(caption, original_caption=None):
     if type(caption) == type([]):
         for caption_term in caption:
-            add_synonyms(caption_term, original_caption=original_caption)
+            if caption_term in dictionary:
+                dictionary[caption_term].append(original_caption)
+            else:
+                dictionary[caption_term] = [original_caption]
+                add_synonyms(caption_term, original_caption=original_caption)
     else:
         # generate synonyms for the caption and add to dictionary
         add_synonyms(caption, original_caption=caption)
+
 
 def write_dictionary_to_disk():
     with open(dictionary_file, 'r+') as d:
@@ -63,6 +70,7 @@ def write_dictionary_to_disk():
 
     with open(dictionary_file, 'w') as d:
         d.write(json.dumps(dictionary))
+
 
 def post(data: Data):
     # data_dict = data.dict()
@@ -111,7 +119,8 @@ def post(data: Data):
                 else:
                     caption_terms = caption.split(' ')
 
-                add_synonyms_to_dictionary(caption_terms, original_caption=caption)
+                add_synonyms_to_dictionary(
+                    caption_terms, original_caption=caption)
             else:
                 add_synonyms_to_dictionary(caption)
 
@@ -127,9 +136,7 @@ def post(data: Data):
 
             caption_dot_text_data = []
             for line in lines:
-                print("line: ", line)
-                l =[x.strip() for x in line.split(' ')]
-                print(l)
+                l = line.split(' ')
                 l[1] = float(l[1])
                 caption_dot_text_data.append(l)
 
@@ -169,7 +176,6 @@ def post(data: Data):
             caption_dot_text.close()
 
 
-
 def search(query):
     '''
         this code assumes that the query has gone through some sort of security check and 
@@ -199,6 +205,7 @@ def search(query):
 
     search_terms = query.split(' ')
     search_results = []
+    seen = set()
 
     for term in search_terms:
         # attempt to pass term to dictionary
@@ -206,21 +213,30 @@ def search(query):
         # if the dictionary returns a value, store as valid_term
 
         try:
-            valid_term = dictionary[term]
+            valid_terms = dictionary[term]
+            print(valid_terms)
 
-            with open(caption_pool_location + valid_term + '.txt') as caption_dot_text:
-                images = caption_dot_text.readlines()
+            for v_term in valid_terms:
 
-                # image format -> "uuid confidence"
-                for image in images:
-                    # split image data into uuid and confidence
-                    i = image.split(' ')
-                    # only store uuid
-                    search_results.append(i[0])
-            print(search_results)
-        except:
+                with open(caption_pool_location + v_term + '.txt') as caption_dot_text:
+                    images = caption_dot_text.readlines()
+
+                    # image format -> "uuid confidence"
+                    for image in images:
+                        # split image data into uuid and confidence
+                        i = image.split(' ')
+                        # only store uuid
+                        if i[0] in seen:
+                            pass
+                        else:
+                            seen.add(i[0])
+                            search_results.append(i[0])
+            
+        except KeyError:
+            # search term was not in dictionary, continue with the for loop
             continue
 
+    return search_results
 
 if __name__ == "__main__":
     image = cv.imread('../Image Repository/image.jpg')
@@ -232,4 +248,5 @@ if __name__ == "__main__":
                     data['image'], data['image_shape'], data['captions'])
         post(data)
 
-    # search("dog ")
+    search_results = search("fire hydrant")
+    print(search_results)
