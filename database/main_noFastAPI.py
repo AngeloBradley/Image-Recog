@@ -111,15 +111,19 @@ def post(data: Data):
                 caption_dot_text.write(' '.join(item) + '\n')
             # close file
             caption_dot_text.close()
-            pass
         else:
+            # update official_captions file and set
+            with open(official_captions_file, 'a') as ocf:
+                ocf.write(caption + '\n')
+
+            official_captions_set.add(caption)
+
             # create new caption.txt file
             caption_dot_text = open(caption_pool_location + caption + '.txt', 'w')
             # write caption info in the form -> "image_name confidence\n"
             caption_dot_text.write(data.uuid + ' ' + str(confidence))
             # close file
             caption_dot_text.close()
-            pass
 
 
 if __name__ == "__main__":
