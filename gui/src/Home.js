@@ -15,9 +15,18 @@ class Home extends Component {
   }
 
   handleSubmit(event) {
-    console.log(typeof({"query": this.state.value}));
-    var query = {"query":this.state.value};
-    axios.post("http://localhost:8090/search", query).then(token =>{console.log(token)});
+    console.log(typeof ({ "query": this.state.value }));
+    var query = { "query": this.state.value };
+    axios.post("http://localhost:8090/search", query).then(token => {
+      console.log(token);
+      console.log(token.data);
+
+      var imageElems = []
+      for(var i = 0; i < token.data.length; i++){
+        var img = document.createElement('img')
+      }
+
+    });
     // console.log(response);
     event.preventDefault();
   }
@@ -32,13 +41,13 @@ class Home extends Component {
           alignItems: "center"
         }}
       >
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Image Search
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Image Search
           <input type="text" value={this.state.value} onChange={this.handleChange} />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
       </div>
 
     );

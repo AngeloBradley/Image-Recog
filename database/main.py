@@ -303,5 +303,5 @@ def gather_images_for_gui(search_results):
 
 
 if __name__ == "__main__":
-    load_dictionary_from_disk()
+    # load_dictionary_from_disk()
     uvicorn.run(app, port=8090, host="0.0.0.0")

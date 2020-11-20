@@ -1,3 +1,4 @@
+from txt_detect import txt_detect
 from fastapi import FastAPI
 import uvicorn
 from pydantic import BaseModel
@@ -34,16 +35,11 @@ async def post(data: Data):
     # object detection
     image = cv.imread(image_path)
     captions = obj_detect.get_object_captions(image)
-    
-    # print(data.uuid + ' ' + str(captions))
 
     # text detection
-    # TODO
-    '''
-        merge caption output from text detector with captions so it is
-        a 2-d array, an outer list containing multiple inner lists of 
-        the form [caption, confidence]
-    '''
+    txt_captions = txt_detect(image)    
+    if txt_captions is not []:
+        captions = captions + txt_detect()
 
     # add captions to data_dict
     data_dict["captions"] = captions
