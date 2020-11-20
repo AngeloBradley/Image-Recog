@@ -1,1 +1,3304 @@
-{"fire hydrant": ["fire hydrant"], "fire": ["fire hydrant"], "campfire": ["fire hydrant"], "grassfire": ["fire hydrant"], "smudge": ["fire hydrant"], "happening": ["fire hydrant"], "conflagration": ["fire hydrant"], "bonfire": ["fire hydrant"], "brush fire": ["fire hydrant"], "balefire": ["fire hydrant"], "natural event": ["fire hydrant"], "forest fire": ["fire hydrant"], "inferno": ["fire hydrant"], "smoulder": ["fire hydrant"], "occurrence": ["fire hydrant"], "backfire": ["fire hydrant"], "smolder": ["fire hydrant"], "prairie fire": ["fire hydrant"], "occurrent": ["fire hydrant"], "hydrant": ["fire hydrant"], "plug": ["fire hydrant"], "fireplug": ["fire hydrant"], "discharge pipe": ["fire hydrant"], "bird": ["bird"], "aves": ["bird"], "archaeornis": ["bird"], "archeopteryx": ["bird"], "passerine": ["bird"], "flock": ["bird"], "dicky-bird": ["bird"], "neb": ["bird"], "carinate bird": ["bird"], "sinornis": ["bird"], "rump": ["bird"], "cuculiform bird": ["bird"], "syrinx": ["bird"], "caprimulgiform bird": ["bird"], "bill": ["bird"], "fowl": ["bird"], "hindquarters": ["bird"], "feather": ["bird"], "coraciiform bird": ["bird"], "dickybird": ["bird"], "uropygium": ["bird"], "hen": ["bird"], "raptor": ["bird"], "apodiform bird": ["bird"], "parrot": ["bird"], "plumage": ["bird"], "flying bird": ["bird"], "ratite bird": ["bird"], "croup": ["bird"], "gallinaceous bird": ["bird"], "carinate": ["bird"], "beak": ["bird"], "bird of prey": ["bird"], "archaeopteryx": ["bird"], "nonpasserine bird": ["bird"], "croupe": ["bird"], "bird's foot": ["bird"], "uropygial gland": ["bird"], "protoavis": ["bird"], "furcula": ["bird"], "nester": ["bird"], "piciform bird": ["bird"], "night bird": ["bird"], "pinion": ["bird"], "vertebrate": ["bird"], "trogon": ["bird"], "twitterer": ["bird"], "preen gland": ["bird"], "passeriform bird": ["bird"], "pecker": ["bird"], "class aves": ["bird"], "dickey-bird": ["bird"], "air sac": ["bird"], "bird of passage": ["bird"], "nib": ["bird"], "wing": ["bird"], "dickeybird": ["bird"], "pennon": ["bird"], "aquatic bird": ["bird"], "flightless bird": ["bird"], "raptorial bird": ["bird"], "ratite": ["bird"], "craniate": ["bird"], "archaeopteryx lithographica": ["bird"], "cock": ["bird"], "ibero-mesornis": ["bird"], "plume": ["bird"], "gallinacean": ["bird"], "giraffe": ["giraffe"], "genus giraffa": ["giraffe"], "giraffa camelopardalis": ["giraffe"], "okapia johnstoni": ["giraffe"], "okapi": ["giraffe"], "camelopard": ["giraffe"], "giraffa": ["giraffe"], "ruminant": ["giraffe"], "dog": ["dog"], "belgian griffon": ["dog"], "coach dog": ["dog"], "barker": ["dog"], "canis": ["dog"], "toy dog": ["dog"], "pooch": ["dog"], "newfoundland dog": ["dog"], "toy": ["dog"], "griffon": ["dog"], "canis familiaris": ["dog"], "lapdog": ["dog"], "doggy": ["dog"], "canine": ["dog"], "bow-wow": ["dog"], "pug-dog": ["dog"], "carriage dog": ["dog"], "leonberg": ["dog"], "mexican hairless": ["dog"], "brussels griffon": ["dog"], "newfoundland": ["dog"], "corgi": ["dog"], "spitz": ["dog"], "domesticated animal": ["dog"], "pug": ["dog"], "pack": ["dog"], "working dog": ["dog"], "flag": ["dog"], "domestic dog": ["dog"], "cur": ["dog"], "doggie": ["dog"], "mongrel": ["dog"], "dalmatian": ["dog"], "canid": ["dog"], "poodle": ["dog"], "genus canis": ["dog"], "hunting dog": ["dog"], "great pyrenees": ["dog"], "mutt": ["dog"], "basenji": ["dog"], "puppy": ["dog"], "domestic animal": ["dog"], "poodle dog": ["dog"], "welsh corgi": ["dog"]}
+{
+    "person": [
+        "person",
+        "person",
+        "person",
+        "person",
+        "person",
+        "person"
+    ],
+    "namesake": [
+        "person"
+    ],
+    "nude": [
+        "person"
+    ],
+    "physical body": [
+        "person"
+    ],
+    "dissident": [
+        "person"
+    ],
+    "coward": [
+        "person"
+    ],
+    "welcomer": [
+        "person"
+    ],
+    "quarter": [
+        "person"
+    ],
+    "second-rater": [
+        "person"
+    ],
+    "debitor": [
+        "person"
+    ],
+    "indigene": [
+        "person"
+    ],
+    "sneezer": [
+        "person"
+    ],
+    "significant other": [
+        "person"
+    ],
+    "muscle builder": [
+        "person"
+    ],
+    "contestant": [
+        "person"
+    ],
+    "match": [
+        "person"
+    ],
+    "expert": [
+        "person"
+    ],
+    "persona non grata": [
+        "person"
+    ],
+    "neglecter": [
+        "person"
+    ],
+    "human body": [
+        "person"
+    ],
+    "mailer": [
+        "person"
+    ],
+    "occultist": [
+        "person"
+    ],
+    "physique": [
+        "person"
+    ],
+    "adult": [
+        "person"
+    ],
+    "handicapped person": [
+        "person"
+    ],
+    "peer": [
+        "person"
+    ],
+    "unskilled person": [
+        "person"
+    ],
+    "straight": [
+        "person"
+    ],
+    "capitalist": [
+        "person"
+    ],
+    "sounding board": [
+        "person"
+    ],
+    "stranger": [
+        "person"
+    ],
+    "mutilator": [
+        "person"
+    ],
+    "beguiler": [
+        "person"
+    ],
+    "beard": [
+        "person"
+    ],
+    "israelite": [
+        "person"
+    ],
+    "computer user": [
+        "person"
+    ],
+    "pisces": [
+        "person"
+    ],
+    "sweater": [
+        "person"
+    ],
+    "baby buster": [
+        "person"
+    ],
+    "literate": [
+        "person"
+    ],
+    "saluter": [
+        "person"
+    ],
+    "advocator": [
+        "person"
+    ],
+    "ouster": [
+        "person"
+    ],
+    "pursuer": [
+        "person"
+    ],
+    "grownup": [
+        "person"
+    ],
+    "fighter": [
+        "person"
+    ],
+    "fastener": [
+        "person"
+    ],
+    "first-rater": [
+        "person"
+    ],
+    "mangler": [
+        "person"
+    ],
+    "worldling": [
+        "person"
+    ],
+    "affiant": [
+        "person"
+    ],
+    "topper": [
+        "person"
+    ],
+    "candidate": [
+        "person"
+    ],
+    "jat": [
+        "person"
+    ],
+    "propositus": [
+        "person"
+    ],
+    "white": [
+        "person"
+    ],
+    "intellectual": [
+        "person"
+    ],
+    "crawler": [
+        "person"
+    ],
+    "malcontent": [
+        "person"
+    ],
+    "sagittarius": [
+        "person"
+    ],
+    "material body": [
+        "person"
+    ],
+    "organism": [
+        "person"
+    ],
+    "homophile": [
+        "person"
+    ],
+    "smasher": [
+        "person"
+    ],
+    "habitant": [
+        "person"
+    ],
+    "powderer": [
+        "person"
+    ],
+    "sniffler": [
+        "person"
+    ],
+    "endomorph": [
+        "person"
+    ],
+    "roundhead": [
+        "person"
+    ],
+    "southpaw": [
+        "person"
+    ],
+    "bereaved": [
+        "person"
+    ],
+    "socialiser": [
+        "person"
+    ],
+    "withholder": [
+        "person"
+    ],
+    "jew": [
+        "person"
+    ],
+    "adoptee": [
+        "person"
+    ],
+    "captor": [
+        "person"
+    ],
+    "visually impaired person": [
+        "person"
+    ],
+    "terror": [
+        "person"
+    ],
+    "fugitive": [
+        "person"
+    ],
+    "realist": [
+        "person"
+    ],
+    "watcher": [
+        "person"
+    ],
+    "belligerent": [
+        "person"
+    ],
+    "modifier": [
+        "person"
+    ],
+    "gem": [
+        "person"
+    ],
+    "discriminator": [
+        "person"
+    ],
+    "applied scientist": [
+        "person"
+    ],
+    "free agent": [
+        "person"
+    ],
+    "signer": [
+        "person"
+    ],
+    "monolingual": [
+        "person"
+    ],
+    "exponent": [
+        "person"
+    ],
+    "kink": [
+        "person"
+    ],
+    "nonperson": [
+        "person"
+    ],
+    "primitive person": [
+        "person"
+    ],
+    "reliever": [
+        "person"
+    ],
+    "archer": [
+        "person"
+    ],
+    "baby boomer": [
+        "person"
+    ],
+    "appreciator": [
+        "person"
+    ],
+    "married": [
+        "person"
+    ],
+    "segregate": [
+        "person"
+    ],
+    "orphan": [
+        "person"
+    ],
+    "transexual": [
+        "person"
+    ],
+    "modern": [
+        "person"
+    ],
+    "gentile": [
+        "person"
+    ],
+    "applier": [
+        "person"
+    ],
+    "biter": [
+        "person"
+    ],
+    "dyslectic": [
+        "person"
+    ],
+    "quitter": [
+        "person"
+    ],
+    "face": [
+        "person"
+    ],
+    "rester": [
+        "person"
+    ],
+    "advocate": [
+        "person"
+    ],
+    "coddler": [
+        "person"
+    ],
+    "ruler": [
+        "person"
+    ],
+    "compeer": [
+        "person"
+    ],
+    "bather": [
+        "person"
+    ],
+    "self": [
+        "person"
+    ],
+    "thirster": [
+        "person"
+    ],
+    "winner": [
+        "person"
+    ],
+    "follower": [
+        "person"
+    ],
+    "nonworker": [
+        "person"
+    ],
+    "inhabitant": [
+        "person"
+    ],
+    "achiever": [
+        "person"
+    ],
+    "onanist": [
+        "person"
+    ],
+    "delayer": [
+        "person"
+    ],
+    "smotherer": [
+        "person"
+    ],
+    "groaner": [
+        "person"
+    ],
+    "tiger": [
+        "person"
+    ],
+    "dancer": [
+        "person"
+    ],
+    "vanisher": [
+        "person"
+    ],
+    "counterterrorist": [
+        "person"
+    ],
+    "anti": [
+        "person"
+    ],
+    "wanter": [
+        "person"
+    ],
+    "linguist": [
+        "person"
+    ],
+    "somebody": [
+        "person"
+    ],
+    "hope": [
+        "person"
+    ],
+    "aboriginal": [
+        "person"
+    ],
+    "miracle worker": [
+        "person"
+    ],
+    "negroid": [
+        "person"
+    ],
+    "crab": [
+        "person"
+    ],
+    "guesser": [
+        "person"
+    ],
+    "fish": [
+        "person"
+    ],
+    "machine": [
+        "person",
+        "car"
+    ],
+    "fiduciary": [
+        "person"
+    ],
+    "huddler": [
+        "person"
+    ],
+    "allayer": [
+        "person"
+    ],
+    "disentangler": [
+        "person"
+    ],
+    "sniffer": [
+        "person"
+    ],
+    "ethnic": [
+        "person"
+    ],
+    "loose cannon": [
+        "person"
+    ],
+    "contriver": [
+        "person"
+    ],
+    "observer": [
+        "person"
+    ],
+    "mouse": [
+        "person"
+    ],
+    "friend": [
+        "person"
+    ],
+    "namer": [
+        "person"
+    ],
+    "urinator": [
+        "person"
+    ],
+    "liver": [
+        "person"
+    ],
+    "succeeder": [
+        "person"
+    ],
+    "posturer": [
+        "person"
+    ],
+    "rich person": [
+        "person"
+    ],
+    "outdoorsman": [
+        "person"
+    ],
+    "totemist": [
+        "person"
+    ],
+    "precursor": [
+        "person"
+    ],
+    "swayer": [
+        "person"
+    ],
+    "searcher": [
+        "person"
+    ],
+    "scholar": [
+        "person"
+    ],
+    "national": [
+        "person"
+    ],
+    "cloud seeder": [
+        "person"
+    ],
+    "cross-dresser": [
+        "person"
+    ],
+    "baulker": [
+        "person"
+    ],
+    "possessor": [
+        "person"
+    ],
+    "black": [
+        "person"
+    ],
+    "male": [
+        "person"
+    ],
+    "ape": [
+        "person"
+    ],
+    "transfer": [
+        "person"
+    ],
+    "snuffer": [
+        "person"
+    ],
+    "compulsive": [
+        "person"
+    ],
+    "creator": [
+        "person"
+    ],
+    "authority": [
+        "person"
+    ],
+    "deviser": [
+        "person"
+    ],
+    "bullfighter": [
+        "person"
+    ],
+    "wuss": [
+        "person"
+    ],
+    "shaker": [
+        "person"
+    ],
+    "homunculus": [
+        "person"
+    ],
+    "person of colour": [
+        "person"
+    ],
+    "sensualist": [
+        "person"
+    ],
+    "survivor": [
+        "person"
+    ],
+    "emotional person": [
+        "person"
+    ],
+    "cashier": [
+        "person"
+    ],
+    "transvestite": [
+        "person"
+    ],
+    "homo": [
+        "person"
+    ],
+    "revenant": [
+        "person"
+    ],
+    "native": [
+        "person"
+    ],
+    "testator": [
+        "person"
+    ],
+    "witness": [
+        "person"
+    ],
+    "left-hander": [
+        "person"
+    ],
+    "suspect": [
+        "person"
+    ],
+    "battler": [
+        "person"
+    ],
+    "abstinent": [
+        "person"
+    ],
+    "supernumerary": [
+        "person"
+    ],
+    "autodidact": [
+        "person"
+    ],
+    "anomaly": [
+        "person"
+    ],
+    "red-header": [
+        "person"
+    ],
+    "man": [
+        "person"
+    ],
+    "money dealer": [
+        "person"
+    ],
+    "innocent": [
+        "person"
+    ],
+    "aries": [
+        "person"
+    ],
+    "aborigine": [
+        "person"
+    ],
+    "doer": [
+        "person"
+    ],
+    "someone": [
+        "person"
+    ],
+    "party": [
+        "person"
+    ],
+    "debtor": [
+        "person"
+    ],
+    "dead person": [
+        "person"
+    ],
+    "unraveller": [
+        "person"
+    ],
+    "success": [
+        "person"
+    ],
+    "transsexual": [
+        "person"
+    ],
+    "drug user": [
+        "person"
+    ],
+    "struggler": [
+        "person"
+    ],
+    "mother hen": [
+        "person"
+    ],
+    "leo": [
+        "person"
+    ],
+    "longer": [
+        "person"
+    ],
+    "virgo": [
+        "person"
+    ],
+    "creditor": [
+        "person"
+    ],
+    "aquarius": [
+        "person"
+    ],
+    "abstainer": [
+        "person"
+    ],
+    "subject": [
+        "person"
+    ],
+    "contemplative": [
+        "person"
+    ],
+    "squint-eye": [
+        "person"
+    ],
+    "adversary": [
+        "person"
+    ],
+    "partner": [
+        "person"
+    ],
+    "redheader": [
+        "person"
+    ],
+    "hoper": [
+        "person"
+    ],
+    "slobberer": [
+        "person"
+    ],
+    "creeper": [
+        "person"
+    ],
+    "amateur": [
+        "person"
+    ],
+    "walk-in": [
+        "person"
+    ],
+    "thrower": [
+        "person"
+    ],
+    "restrainer": [
+        "person"
+    ],
+    "weasel": [
+        "person"
+    ],
+    "masturbator": [
+        "person"
+    ],
+    "departed": [
+        "person"
+    ],
+    "percher": [
+        "person"
+    ],
+    "person of color": [
+        "person"
+    ],
+    "effecter": [
+        "person"
+    ],
+    "baldhead": [
+        "person"
+    ],
+    "money handler": [
+        "person"
+    ],
+    "asthmatic": [
+        "person"
+    ],
+    "indweller": [
+        "person"
+    ],
+    "soma": [
+        "person"
+    ],
+    "controller": [
+        "person"
+    ],
+    "free spirit": [
+        "person"
+    ],
+    "dieter": [
+        "person"
+    ],
+    "muscleman": [
+        "person"
+    ],
+    "abjurer": [
+        "person"
+    ],
+    "doubter": [
+        "person"
+    ],
+    "pansexual": [
+        "person"
+    ],
+    "slave": [
+        "person"
+    ],
+    "unwelcome person": [
+        "person"
+    ],
+    "public relations person": [
+        "person"
+    ],
+    "common person": [
+        "person"
+    ],
+    "imitator": [
+        "person"
+    ],
+    "male person": [
+        "person"
+    ],
+    "bad person": [
+        "person"
+    ],
+    "capturer": [
+        "person"
+    ],
+    "baby": [
+        "person"
+    ],
+    "archaist": [
+        "person"
+    ],
+    "adventurer": [
+        "person"
+    ],
+    "good person": [
+        "person"
+    ],
+    "ancient": [
+        "person"
+    ],
+    "yearner": [
+        "person"
+    ],
+    "neighbor": [
+        "person"
+    ],
+    "large person": [
+        "person"
+    ],
+    "six-footer": [
+        "person"
+    ],
+    "stooper": [
+        "person"
+    ],
+    "apprehender": [
+        "person"
+    ],
+    "nurser": [
+        "person"
+    ],
+    "yielder": [
+        "person"
+    ],
+    "percipient": [
+        "person"
+    ],
+    "cripple": [
+        "person"
+    ],
+    "female person": [
+        "person"
+    ],
+    "sort": [
+        "person"
+    ],
+    "introvert": [
+        "person"
+    ],
+    "copycat": [
+        "person"
+    ],
+    "unfortunate": [
+        "person"
+    ],
+    "measurer": [
+        "person"
+    ],
+    "wight": [
+        "person"
+    ],
+    "untier": [
+        "person"
+    ],
+    "gatekeeper": [
+        "person"
+    ],
+    "advisee": [
+        "person"
+    ],
+    "insured": [
+        "person"
+    ],
+    "blogger": [
+        "person"
+    ],
+    "socializer": [
+        "person"
+    ],
+    "enjoyer": [
+        "person"
+    ],
+    "shape": [
+        "person"
+    ],
+    "build": [
+        "person"
+    ],
+    "black person": [
+        "person"
+    ],
+    "quester": [
+        "person"
+    ],
+    "skidder": [
+        "person"
+    ],
+    "dweller": [
+        "person"
+    ],
+    "misogamist": [
+        "person"
+    ],
+    "hebrew": [
+        "person"
+    ],
+    "mixed-blood": [
+        "person"
+    ],
+    "gambler": [
+        "person"
+    ],
+    "cause": [
+        "person"
+    ],
+    "drooler": [
+        "person"
+    ],
+    "squirmer": [
+        "person"
+    ],
+    "saver": [
+        "person"
+    ],
+    "sport": [
+        "person"
+    ],
+    "collector": [
+        "person"
+    ],
+    "knower": [
+        "person"
+    ],
+    "scorpion": [
+        "person"
+    ],
+    "picker": [
+        "person"
+    ],
+    "hater": [
+        "person"
+    ],
+    "life": [
+        "person"
+    ],
+    "mediocrity": [
+        "person"
+    ],
+    "aggregator": [
+        "person"
+    ],
+    "slider": [
+        "person"
+    ],
+    "social dancer": [
+        "person"
+    ],
+    "disputant": [
+        "person"
+    ],
+    "runaway": [
+        "person"
+    ],
+    "preserver": [
+        "person"
+    ],
+    "spousal equivalent": [
+        "person"
+    ],
+    "stigmatist": [
+        "person"
+    ],
+    "bod": [
+        "person"
+    ],
+    "double": [
+        "person"
+    ],
+    "heterosexual person": [
+        "person"
+    ],
+    "celebrater": [
+        "person"
+    ],
+    "rusher": [
+        "person"
+    ],
+    "venturer": [
+        "person"
+    ],
+    "sniveler": [
+        "person"
+    ],
+    "learner": [
+        "person"
+    ],
+    "demander": [
+        "person"
+    ],
+    "actor": [
+        "person"
+    ],
+    "interpreter": [
+        "person"
+    ],
+    "mover and shaker": [
+        "person"
+    ],
+    "chassis": [
+        "person"
+    ],
+    "balker": [
+        "person"
+    ],
+    "homosexual": [
+        "person"
+    ],
+    "denizen": [
+        "person"
+    ],
+    "relation": [
+        "person"
+    ],
+    "heterosexual": [
+        "person"
+    ],
+    "celebrator": [
+        "person"
+    ],
+    "sloucher": [
+        "person"
+    ],
+    "attempter": [
+        "person"
+    ],
+    "elizabethan": [
+        "person"
+    ],
+    "resister": [
+        "person"
+    ],
+    "clumsy person": [
+        "person"
+    ],
+    "faddist": [
+        "person"
+    ],
+    "spurner": [
+        "person"
+    ],
+    "testate": [
+        "person"
+    ],
+    "deaf person": [
+        "person"
+    ],
+    "african": [
+        "person"
+    ],
+    "neighbour": [
+        "person"
+    ],
+    "scourge": [
+        "person"
+    ],
+    "frame": [
+        "person"
+    ],
+    "threat": [
+        "person"
+    ],
+    "middlebrow": [
+        "person"
+    ],
+    "rectifier": [
+        "person"
+    ],
+    "capricorn": [
+        "person"
+    ],
+    "slav": [
+        "person"
+    ],
+    "weight gainer": [
+        "person"
+    ],
+    "unraveler": [
+        "person"
+    ],
+    "lover": [
+        "person"
+    ],
+    "signatory": [
+        "person"
+    ],
+    "bodybuilder": [
+        "person"
+    ],
+    "assessee": [
+        "person"
+    ],
+    "surrenderer": [
+        "person"
+    ],
+    "ram": [
+        "person"
+    ],
+    "transferee": [
+        "person"
+    ],
+    "blonde": [
+        "person"
+    ],
+    "domestic partner": [
+        "person"
+    ],
+    "polyglot": [
+        "person"
+    ],
+    "form": [
+        "person"
+    ],
+    "sphinx": [
+        "person"
+    ],
+    "personification": [
+        "person"
+    ],
+    "white person": [
+        "person"
+    ],
+    "gainer": [
+        "person"
+    ],
+    "ward": [
+        "person"
+    ],
+    "laugher": [
+        "person"
+    ],
+    "nonresident": [
+        "person"
+    ],
+    "noncompliant": [
+        "person"
+    ],
+    "forerunner": [
+        "person"
+    ],
+    "perceiver": [
+        "person"
+    ],
+    "riser": [
+        "person"
+    ],
+    "sentimentalist": [
+        "person"
+    ],
+    "negro": [
+        "person"
+    ],
+    "dupe": [
+        "person"
+    ],
+    "brunette": [
+        "person"
+    ],
+    "equal": [
+        "person"
+    ],
+    "essayer": [
+        "person"
+    ],
+    "unfastener": [
+        "person"
+    ],
+    "complexifier": [
+        "person"
+    ],
+    "combatant": [
+        "person"
+    ],
+    "pisser": [
+        "person"
+    ],
+    "have": [
+        "person",
+        "bear"
+    ],
+    "greeter": [
+        "person"
+    ],
+    "nonpartizan": [
+        "person"
+    ],
+    "brunet": [
+        "person"
+    ],
+    "deceased person": [
+        "person"
+    ],
+    "commoner": [
+        "person"
+    ],
+    "tyrant": [
+        "person"
+    ],
+    "communicator": [
+        "person"
+    ],
+    "chooser": [
+        "person"
+    ],
+    "closer": [
+        "person"
+    ],
+    "proponent": [
+        "person"
+    ],
+    "manipulator": [
+        "person"
+    ],
+    "latin": [
+        "person"
+    ],
+    "repeater": [
+        "person"
+    ],
+    "passer": [
+        "person"
+    ],
+    "perspirer": [
+        "person"
+    ],
+    "shitter": [
+        "person"
+    ],
+    "sex symbol": [
+        "person"
+    ],
+    "water bearer": [
+        "person"
+    ],
+    "causal agent": [
+        "person"
+    ],
+    "twin": [
+        "person"
+    ],
+    "waker": [
+        "person"
+    ],
+    "selector": [
+        "person"
+    ],
+    "tapper": [
+        "person"
+    ],
+    "good guy": [
+        "person"
+    ],
+    "muscle-builder": [
+        "person"
+    ],
+    "faller": [
+        "person"
+    ],
+    "protester": [
+        "person"
+    ],
+    "best": [
+        "person"
+    ],
+    "voider": [
+        "person"
+    ],
+    "forgiver": [
+        "person"
+    ],
+    "mortal": [
+        "person"
+    ],
+    "excuser": [
+        "person"
+    ],
+    "scrag": [
+        "person"
+    ],
+    "censor": [
+        "person"
+    ],
+    "experimenter": [
+        "person"
+    ],
+    "female": [
+        "person"
+    ],
+    "celebrant": [
+        "person"
+    ],
+    "nonparticipant": [
+        "person"
+    ],
+    "traveller": [
+        "person"
+    ],
+    "juvenile": [
+        "person"
+    ],
+    "acquirer": [
+        "person"
+    ],
+    "ectomorph": [
+        "person"
+    ],
+    "virgin": [
+        "person"
+    ],
+    "scientist": [
+        "person"
+    ],
+    "caucasian": [
+        "person"
+    ],
+    "user": [
+        "person"
+    ],
+    "spouse equivalent": [
+        "person"
+    ],
+    "beholder": [
+        "person"
+    ],
+    "doormat": [
+        "person"
+    ],
+    "granter": [
+        "person"
+    ],
+    "toucher": [
+        "person"
+    ],
+    "miracle man": [
+        "person"
+    ],
+    "skin and bones": [
+        "person"
+    ],
+    "arrogator": [
+        "person"
+    ],
+    "appointment": [
+        "person"
+    ],
+    "flesh": [
+        "person"
+    ],
+    "controversialist": [
+        "person"
+    ],
+    "individualist": [
+        "person"
+    ],
+    "optimist": [
+        "person"
+    ],
+    "cancer": [
+        "person"
+    ],
+    "child": [
+        "person"
+    ],
+    "expectorator": [
+        "person"
+    ],
+    "acquaintance": [
+        "person"
+    ],
+    "jumper": [
+        "person"
+    ],
+    "admirer": [
+        "person"
+    ],
+    "blackamoor": [
+        "person"
+    ],
+    "decedent": [
+        "person"
+    ],
+    "rescuer": [
+        "person"
+    ],
+    "romper": [
+        "person"
+    ],
+    "third-rater": [
+        "person"
+    ],
+    "opponent": [
+        "person"
+    ],
+    "fleer": [
+        "person"
+    ],
+    "unfortunate person": [
+        "person"
+    ],
+    "native american": [
+        "person"
+    ],
+    "eristic": [
+        "person"
+    ],
+    "visionary": [
+        "person"
+    ],
+    "defecator": [
+        "person"
+    ],
+    "spitter": [
+        "person"
+    ],
+    "being": [
+        "person"
+    ],
+    "survivalist": [
+        "person"
+    ],
+    "active": [
+        "person"
+    ],
+    "tagger": [
+        "person"
+    ],
+    "deliverer": [
+        "person"
+    ],
+    "tempter": [
+        "person"
+    ],
+    "opposer": [
+        "person"
+    ],
+    "balance": [
+        "person"
+    ],
+    "victorian": [
+        "person"
+    ],
+    "birth": [
+        "person"
+    ],
+    "antagonist": [
+        "person"
+    ],
+    "player": [
+        "person"
+    ],
+    "redhead": [
+        "person"
+    ],
+    "image": [
+        "person"
+    ],
+    "inexperienced person": [
+        "person"
+    ],
+    "man jack": [
+        "person"
+    ],
+    "snuffler": [
+        "person"
+    ],
+    "radical": [
+        "person"
+    ],
+    "ostrich": [
+        "person"
+    ],
+    "pussycat": [
+        "person"
+    ],
+    "relative": [
+        "person"
+    ],
+    "look-alike": [
+        "person"
+    ],
+    "registrant": [
+        "person"
+    ],
+    "righthander": [
+        "person"
+    ],
+    "baldpate": [
+        "person"
+    ],
+    "traveler": [
+        "person"
+    ],
+    "bedfellow": [
+        "person"
+    ],
+    "buster": [
+        "person"
+    ],
+    "aper": [
+        "person"
+    ],
+    "counter": [
+        "person"
+    ],
+    "turner": [
+        "person"
+    ],
+    "scorpio": [
+        "person"
+    ],
+    "intellect": [
+        "person"
+    ],
+    "emulator": [
+        "person"
+    ],
+    "bereaved person": [
+        "person"
+    ],
+    "goat": [
+        "person"
+    ],
+    "engineer": [
+        "person"
+    ],
+    "ejector": [
+        "person"
+    ],
+    "appointee": [
+        "person"
+    ],
+    "waiter": [
+        "person"
+    ],
+    "slipper": [
+        "person"
+    ],
+    "bluecoat": [
+        "person"
+    ],
+    "lefty": [
+        "person"
+    ],
+    "guinea pig": [
+        "person"
+    ],
+    "maimer": [
+        "person"
+    ],
+    "showman": [
+        "person"
+    ],
+    "leader": [
+        "person"
+    ],
+    "indigen": [
+        "person"
+    ],
+    "grunter": [
+        "person"
+    ],
+    "nondrinker": [
+        "person"
+    ],
+    "spoiler": [
+        "person"
+    ],
+    "pardoner": [
+        "person"
+    ],
+    "termer": [
+        "person"
+    ],
+    "divider": [
+        "person"
+    ],
+    "nonpartisan": [
+        "person"
+    ],
+    "nondescript": [
+        "person"
+    ],
+    "soul": [
+        "person"
+    ],
+    "substance abuser": [
+        "person"
+    ],
+    "abomination": [
+        "person"
+    ],
+    "lion": [
+        "person"
+    ],
+    "needer": [
+        "person"
+    ],
+    "victim": [
+        "person"
+    ],
+    "bomber": [
+        "person"
+    ],
+    "gay": [
+        "person"
+    ],
+    "gemini": [
+        "person"
+    ],
+    "undoer": [
+        "person"
+    ],
+    "abator": [
+        "person"
+    ],
+    "weakling": [
+        "person"
+    ],
+    "kneeler": [
+        "person"
+    ],
+    "wealthy person": [
+        "person"
+    ],
+    "dissenter": [
+        "person"
+    ],
+    "philosopher": [
+        "person"
+    ],
+    "winker": [
+        "person"
+    ],
+    "effector": [
+        "person"
+    ],
+    "right hander": [
+        "person"
+    ],
+    "causal agency": [
+        "person"
+    ],
+    "opener": [
+        "person"
+    ],
+    "blond": [
+        "person"
+    ],
+    "worker": [
+        "person"
+    ],
+    "people": [
+        "person"
+    ],
+    "freewheeler": [
+        "person"
+    ],
+    "wriggler": [
+        "person"
+    ],
+    "anatomy": [
+        "person"
+    ],
+    "religious person": [
+        "person"
+    ],
+    "yawner": [
+        "person"
+    ],
+    "primitive": [
+        "person"
+    ],
+    "warrior": [
+        "person"
+    ],
+    "entertainer": [
+        "person"
+    ],
+    "trier": [
+        "person"
+    ],
+    "individual": [
+        "person"
+    ],
+    "mestizo": [
+        "person"
+    ],
+    "seeder": [
+        "person"
+    ],
+    "planner": [
+        "person"
+    ],
+    "bad guy": [
+        "person"
+    ],
+    "simple": [
+        "person"
+    ],
+    "unusual person": [
+        "person"
+    ],
+    "chameleon": [
+        "person"
+    ],
+    "assimilator": [
+        "person"
+    ],
+    "nonsmoker": [
+        "person"
+    ],
+    "insured person": [
+        "person"
+    ],
+    "sex object": [
+        "person"
+    ],
+    "grinner": [
+        "person"
+    ],
+    "figure": [
+        "person"
+    ],
+    "lightning rod": [
+        "person"
+    ],
+    "dead soul": [
+        "person"
+    ],
+    "dribbler": [
+        "person"
+    ],
+    "driveller": [
+        "person"
+    ],
+    "junior": [
+        "person"
+    ],
+    "seeker": [
+        "person"
+    ],
+    "common man": [
+        "person"
+    ],
+    "objector": [
+        "person"
+    ],
+    "immune": [
+        "person"
+    ],
+    "literate person": [
+        "person"
+    ],
+    "comforter": [
+        "person"
+    ],
+    "scrapper": [
+        "person"
+    ],
+    "romanticist": [
+        "person"
+    ],
+    "outcaste": [
+        "person"
+    ],
+    "amerindian": [
+        "person"
+    ],
+    "small person": [
+        "person"
+    ],
+    "color-blind person": [
+        "person"
+    ],
+    "wiggler": [
+        "person"
+    ],
+    "anti-american": [
+        "person"
+    ],
+    "charmer": [
+        "person"
+    ],
+    "musclebuilder": [
+        "person"
+    ],
+    "dresser": [
+        "person"
+    ],
+    "adjudicator": [
+        "person"
+    ],
+    "enrollee": [
+        "person"
+    ],
+    "prospect": [
+        "person"
+    ],
+    "technologist": [
+        "person"
+    ],
+    "nonreligious person": [
+        "person"
+    ],
+    "pamperer": [
+        "person"
+    ],
+    "jewel": [
+        "person"
+    ],
+    "taurus": [
+        "person"
+    ],
+    "recoverer": [
+        "person"
+    ],
+    "carrottop": [
+        "person"
+    ],
+    "knocker": [
+        "person"
+    ],
+    "slayer": [
+        "person"
+    ],
+    "baldy": [
+        "person"
+    ],
+    "bull": [
+        "person"
+    ],
+    "convert": [
+        "person"
+    ],
+    "mollycoddler": [
+        "person"
+    ],
+    "hugger": [
+        "person"
+    ],
+    "boomer": [
+        "person"
+    ],
+    "juvenile person": [
+        "person"
+    ],
+    "agnostic": [
+        "person"
+    ],
+    "mesomorph": [
+        "person"
+    ],
+    "stigmatic": [
+        "person"
+    ],
+    "extravert": [
+        "person"
+    ],
+    "owner": [
+        "person"
+    ],
+    "loved one": [
+        "person"
+    ],
+    "nude person": [
+        "person"
+    ],
+    "simpleton": [
+        "person"
+    ],
+    "applicant": [
+        "person"
+    ],
+    "gatherer": [
+        "person"
+    ],
+    "stifler": [
+        "person"
+    ],
+    "libra": [
+        "person"
+    ],
+    "right-hander": [
+        "person"
+    ],
+    "smiler": [
+        "person"
+    ],
+    "personality": [
+        "person"
+    ],
+    "sleepyhead": [
+        "person"
+    ],
+    "deceased": [
+        "person"
+    ],
+    "explorer": [
+        "person"
+    ],
+    "straight person": [
+        "person"
+    ],
+    "chutzpanik": [
+        "person"
+    ],
+    "nonmember": [
+        "person"
+    ],
+    "unperson": [
+        "person"
+    ],
+    "sprawler": [
+        "person"
+    ],
+    "thin person": [
+        "person"
+    ],
+    "killer": [
+        "person"
+    ],
+    "ladino": [
+        "person"
+    ],
+    "neutral": [
+        "person"
+    ],
+    "squinter": [
+        "person"
+    ],
+    "degrader": [
+        "person"
+    ],
+    "differentiator": [
+        "person"
+    ],
+    "creature": [
+        "person"
+    ],
+    "case": [
+        "person"
+    ],
+    "extrovert": [
+        "person"
+    ],
+    "scratcher": [
+        "person"
+    ],
+    "toreador": [
+        "person"
+    ],
+    "personage": [
+        "person"
+    ],
+    "debaser": [
+        "person"
+    ],
+    "changer": [
+        "person"
+    ],
+    "surfboard": [
+        "surfboard"
+    ],
+    "board": [
+        "surfboard",
+        "skateboard"
+    ],
+    "horse": [
+        "horse"
+    ],
+    "bay": [
+        "horse"
+    ],
+    "pony": [
+        "horse"
+    ],
+    "stablemate": [
+        "horse"
+    ],
+    "mount": [
+        "horse"
+    ],
+    "dawn horse": [
+        "horse"
+    ],
+    "roan": [
+        "horse"
+    ],
+    "equus": [
+        "horse"
+    ],
+    "equid": [
+        "horse"
+    ],
+    "horse's foot": [
+        "horse"
+    ],
+    "plug": [
+        "horse"
+    ],
+    "equus caballus": [
+        "horse"
+    ],
+    "poster": [
+        "horse"
+    ],
+    "polo pony": [
+        "horse"
+    ],
+    "gee-gee": [
+        "horse"
+    ],
+    "palomino": [
+        "horse"
+    ],
+    "withers": [
+        "horse"
+    ],
+    "nag": [
+        "horse"
+    ],
+    "female horse": [
+        "horse"
+    ],
+    "chestnut": [
+        "horse"
+    ],
+    "riding horse": [
+        "horse"
+    ],
+    "steeplechaser": [
+        "horse"
+    ],
+    "workhorse": [
+        "horse"
+    ],
+    "encolure": [
+        "horse"
+    ],
+    "post horse": [
+        "horse"
+    ],
+    "race horse": [
+        "horse"
+    ],
+    "male horse": [
+        "horse"
+    ],
+    "mare": [
+        "horse"
+    ],
+    "racehorse": [
+        "horse"
+    ],
+    "bangtail": [
+        "horse"
+    ],
+    "stable companion": [
+        "horse"
+    ],
+    "eohippus": [
+        "horse"
+    ],
+    "stalking-horse": [
+        "horse"
+    ],
+    "mesohippus": [
+        "horse"
+    ],
+    "horseback": [
+        "horse"
+    ],
+    "jade": [
+        "horse"
+    ],
+    "high stepper": [
+        "horse"
+    ],
+    "harness horse": [
+        "horse"
+    ],
+    "foal": [
+        "horse"
+    ],
+    "pinto": [
+        "horse"
+    ],
+    "stepper": [
+        "horse"
+    ],
+    "protohippus": [
+        "horse"
+    ],
+    "liver chestnut": [
+        "horse"
+    ],
+    "horsemeat": [
+        "horse"
+    ],
+    "horseflesh": [
+        "horse"
+    ],
+    "poll": [
+        "horse"
+    ],
+    "genus equus": [
+        "horse"
+    ],
+    "sorrel": [
+        "horse"
+    ],
+    "post-horse": [
+        "horse"
+    ],
+    "saddle horse": [
+        "horse"
+    ],
+    "gaskin": [
+        "horse"
+    ],
+    "pacer": [
+        "horse"
+    ],
+    "hack": [
+        "horse",
+        "car"
+    ],
+    "wild horse": [
+        "horse"
+    ],
+    "equine": [
+        "horse"
+    ],
+    "vase": [
+        "vase"
+    ],
+    "urn": [
+        "vase"
+    ],
+    "jar": [
+        "vase"
+    ],
+    "potted plant": [
+        "potted plant",
+        "potted plant"
+    ],
+    "potted": [
+        "potted plant"
+    ],
+    "preserved": [
+        "potted plant"
+    ],
+    "plant": [
+        "potted plant"
+    ],
+    "smelter": [
+        "potted plant"
+    ],
+    "refinery": [
+        "potted plant"
+    ],
+    "disposal plant": [
+        "potted plant"
+    ],
+    "sewage disposal plant": [
+        "potted plant"
+    ],
+    "packinghouse": [
+        "potted plant"
+    ],
+    "building complex": [
+        "potted plant"
+    ],
+    "bottling plant": [
+        "potted plant"
+    ],
+    "packing plant": [
+        "potted plant"
+    ],
+    "still": [
+        "potted plant"
+    ],
+    "distillery": [
+        "potted plant"
+    ],
+    "smeltery": [
+        "potted plant"
+    ],
+    "manufacturing plant": [
+        "potted plant"
+    ],
+    "complex": [
+        "potted plant"
+    ],
+    "works": [
+        "potted plant"
+    ],
+    "brewery": [
+        "potted plant"
+    ],
+    "mint": [
+        "potted plant"
+    ],
+    "industrial plant": [
+        "potted plant"
+    ],
+    "factory": [
+        "potted plant"
+    ],
+    "recycling plant": [
+        "potted plant"
+    ],
+    "mill": [
+        "potted plant"
+    ],
+    "manufactory": [
+        "potted plant"
+    ],
+    "saltworks": [
+        "potted plant"
+    ],
+    "tv": [
+        "tv"
+    ],
+    "cable television": [
+        "tv"
+    ],
+    "broadcasting": [
+        "tv"
+    ],
+    "audio": [
+        "tv"
+    ],
+    "television": [
+        "tv"
+    ],
+    "telecasting": [
+        "tv"
+    ],
+    "high-definition television": [
+        "tv"
+    ],
+    "hdtv": [
+        "tv"
+    ],
+    "cable": [
+        "tv"
+    ],
+    "sound": [
+        "tv"
+    ],
+    "video": [
+        "tv"
+    ],
+    "picture": [
+        "tv"
+    ],
+    "remote": [
+        "remote"
+    ],
+    "far": [
+        "remote"
+    ],
+    "distant": [
+        "remote"
+    ],
+    "motorcycle": [
+        "motorcycle"
+    ],
+    "motor vehicle": [
+        "motorcycle",
+        "car"
+    ],
+    "kickstand": [
+        "motorcycle"
+    ],
+    "bike": [
+        "motorcycle"
+    ],
+    "trail bike": [
+        "motorcycle"
+    ],
+    "splash guard": [
+        "motorcycle"
+    ],
+    "minibike": [
+        "motorcycle"
+    ],
+    "motorbike": [
+        "motorcycle"
+    ],
+    "dirt bike": [
+        "motorcycle"
+    ],
+    "kick starter": [
+        "motorcycle"
+    ],
+    "scrambler": [
+        "motorcycle"
+    ],
+    "splash-guard": [
+        "motorcycle"
+    ],
+    "mudguard": [
+        "motorcycle"
+    ],
+    "automotive vehicle": [
+        "motorcycle",
+        "car"
+    ],
+    "kick start": [
+        "motorcycle"
+    ],
+    "car": [
+        "car",
+        "car"
+    ],
+    "fender": [
+        "car"
+    ],
+    "floorboard": [
+        "car"
+    ],
+    "station waggon": [
+        "car"
+    ],
+    "model t": [
+        "car"
+    ],
+    "automobile horn": [
+        "car"
+    ],
+    "sedan": [
+        "car"
+    ],
+    "stock car": [
+        "car"
+    ],
+    "racer": [
+        "car"
+    ],
+    "pace car": [
+        "car"
+    ],
+    "automobile trunk": [
+        "car"
+    ],
+    "automobile": [
+        "car"
+    ],
+    "roadster": [
+        "car"
+    ],
+    "gas": [
+        "car"
+    ],
+    "hooter": [
+        "car"
+    ],
+    "stabilizer bar": [
+        "car"
+    ],
+    "reverse": [
+        "car"
+    ],
+    "subcompact car": [
+        "car"
+    ],
+    "horn": [
+        "car"
+    ],
+    "prowl car": [
+        "car"
+    ],
+    "phaeton": [
+        "car"
+    ],
+    "low": [
+        "car"
+    ],
+    "third": [
+        "car"
+    ],
+    "sports car": [
+        "car"
+    ],
+    "minivan": [
+        "car"
+    ],
+    "waggon": [
+        "car"
+    ],
+    "fin": [
+        "car"
+    ],
+    "subcompact": [
+        "car"
+    ],
+    "hot rod": [
+        "car"
+    ],
+    "running board": [
+        "car"
+    ],
+    "convertible": [
+        "car"
+    ],
+    "accelerator": [
+        "car"
+    ],
+    "tail fin": [
+        "car"
+    ],
+    "jeep": [
+        "car"
+    ],
+    "horseless carriage": [
+        "car"
+    ],
+    "electric car": [
+        "car"
+    ],
+    "car door": [
+        "car"
+    ],
+    "saloon": [
+        "car"
+    ],
+    "bus": [
+        "car"
+    ],
+    "loaner": [
+        "car"
+    ],
+    "gas guzzler": [
+        "car"
+    ],
+    "taxi": [
+        "car"
+    ],
+    "landrover": [
+        "car"
+    ],
+    "grille": [
+        "car"
+    ],
+    "beach wagon": [
+        "car"
+    ],
+    "gas pedal": [
+        "car"
+    ],
+    "throttle": [
+        "car"
+    ],
+    "hatchback": [
+        "car"
+    ],
+    "air bag": [
+        "car"
+    ],
+    "s.u.v.": [
+        "car"
+    ],
+    "beach waggon": [
+        "car"
+    ],
+    "stanley steamer": [
+        "car"
+    ],
+    "bonnet": [
+        "car"
+    ],
+    "limousine": [
+        "car"
+    ],
+    "used-car": [
+        "car"
+    ],
+    "auto": [
+        "car"
+    ],
+    "sport utility": [
+        "car"
+    ],
+    "two-seater": [
+        "car"
+    ],
+    "ambulance": [
+        "car"
+    ],
+    "high gear": [
+        "car"
+    ],
+    "roof": [
+        "car"
+    ],
+    "hardtop": [
+        "car"
+    ],
+    "buffer": [
+        "car"
+    ],
+    "window": [
+        "car"
+    ],
+    "electric automobile": [
+        "car"
+    ],
+    "first": [
+        "car"
+    ],
+    "taxicab": [
+        "car"
+    ],
+    "cab": [
+        "car"
+    ],
+    "sunroof": [
+        "car"
+    ],
+    "hot-rod": [
+        "car"
+    ],
+    "anti-sway bar": [
+        "car"
+    ],
+    "bumper": [
+        "car"
+    ],
+    "compact": [
+        "car"
+    ],
+    "estate car": [
+        "car"
+    ],
+    "motor horn": [
+        "car"
+    ],
+    "rear window": [
+        "car"
+    ],
+    "police cruiser": [
+        "car"
+    ],
+    "heap": [
+        "car"
+    ],
+    "secondhand car": [
+        "car"
+    ],
+    "auto accessory": [
+        "car"
+    ],
+    "sunshine-roof": [
+        "car"
+    ],
+    "car window": [
+        "car"
+    ],
+    "racing car": [
+        "car"
+    ],
+    "motorcar": [
+        "car"
+    ],
+    "coupe": [
+        "car"
+    ],
+    "high": [
+        "car"
+    ],
+    "low gear": [
+        "car"
+    ],
+    "limo": [
+        "car"
+    ],
+    "sport car": [
+        "car"
+    ],
+    "cowl": [
+        "car"
+    ],
+    "tourer": [
+        "car"
+    ],
+    "glove compartment": [
+        "car"
+    ],
+    "hood": [
+        "car"
+    ],
+    "tailfin": [
+        "car"
+    ],
+    "electric": [
+        "car"
+    ],
+    "wagon": [
+        "car"
+    ],
+    "patrol car": [
+        "car"
+    ],
+    "cowling": [
+        "car"
+    ],
+    "cruiser": [
+        "car"
+    ],
+    "luggage compartment": [
+        "car"
+    ],
+    "car mirror": [
+        "car"
+    ],
+    "petrol engine": [
+        "car"
+    ],
+    "minicar": [
+        "car"
+    ],
+    "reverse gear": [
+        "car"
+    ],
+    "jalopy": [
+        "car"
+    ],
+    "third gear": [
+        "car"
+    ],
+    "car seat": [
+        "car"
+    ],
+    "touring car": [
+        "car"
+    ],
+    "accelerator pedal": [
+        "car"
+    ],
+    "car horn": [
+        "car"
+    ],
+    "gun": [
+        "car"
+    ],
+    "compact car": [
+        "car"
+    ],
+    "squad car": [
+        "car"
+    ],
+    "gasoline engine": [
+        "car"
+    ],
+    "wing": [
+        "car",
+        "bird"
+    ],
+    "police car": [
+        "car"
+    ],
+    "first gear": [
+        "car"
+    ],
+    "trunk": [
+        "car"
+    ],
+    "sport utility vehicle": [
+        "car"
+    ],
+    "suv": [
+        "car"
+    ],
+    "runabout": [
+        "car"
+    ],
+    "race car": [
+        "car"
+    ],
+    "station wagon": [
+        "car"
+    ],
+    "automobile engine": [
+        "car"
+    ],
+    "radiator grille": [
+        "car"
+    ],
+    "dog": [
+        "dog"
+    ],
+    "belgian griffon": [
+        "dog"
+    ],
+    "coach dog": [
+        "dog"
+    ],
+    "barker": [
+        "dog"
+    ],
+    "canis": [
+        "dog"
+    ],
+    "toy dog": [
+        "dog"
+    ],
+    "pooch": [
+        "dog"
+    ],
+    "newfoundland dog": [
+        "dog"
+    ],
+    "toy": [
+        "dog"
+    ],
+    "griffon": [
+        "dog"
+    ],
+    "canis familiaris": [
+        "dog"
+    ],
+    "lapdog": [
+        "dog"
+    ],
+    "doggy": [
+        "dog"
+    ],
+    "canine": [
+        "dog"
+    ],
+    "bow-wow": [
+        "dog"
+    ],
+    "pug-dog": [
+        "dog"
+    ],
+    "carriage dog": [
+        "dog"
+    ],
+    "leonberg": [
+        "dog"
+    ],
+    "mexican hairless": [
+        "dog"
+    ],
+    "brussels griffon": [
+        "dog"
+    ],
+    "newfoundland": [
+        "dog"
+    ],
+    "corgi": [
+        "dog"
+    ],
+    "spitz": [
+        "dog"
+    ],
+    "domesticated animal": [
+        "dog"
+    ],
+    "pug": [
+        "dog"
+    ],
+    "pack": [
+        "dog"
+    ],
+    "working dog": [
+        "dog"
+    ],
+    "flag": [
+        "dog"
+    ],
+    "domestic dog": [
+        "dog"
+    ],
+    "cur": [
+        "dog"
+    ],
+    "doggie": [
+        "dog"
+    ],
+    "mongrel": [
+        "dog"
+    ],
+    "dalmatian": [
+        "dog"
+    ],
+    "canid": [
+        "dog"
+    ],
+    "poodle": [
+        "dog"
+    ],
+    "genus canis": [
+        "dog"
+    ],
+    "hunting dog": [
+        "dog"
+    ],
+    "great pyrenees": [
+        "dog"
+    ],
+    "mutt": [
+        "dog"
+    ],
+    "basenji": [
+        "dog"
+    ],
+    "puppy": [
+        "dog"
+    ],
+    "domestic animal": [
+        "dog"
+    ],
+    "poodle dog": [
+        "dog"
+    ],
+    "welsh corgi": [
+        "dog"
+    ],
+    "skateboard": [
+        "skateboard"
+    ],
+    "wheeled vehicle": [
+        "skateboard"
+    ],
+    "clock": [
+        "clock"
+    ],
+    "clock face": [
+        "clock"
+    ],
+    "pendulum clock": [
+        "clock"
+    ],
+    "clock dial": [
+        "clock"
+    ],
+    "turret clock": [
+        "clock"
+    ],
+    "water clock": [
+        "clock"
+    ],
+    "timekeeper": [
+        "clock"
+    ],
+    "system clock": [
+        "clock"
+    ],
+    "digital clock": [
+        "clock"
+    ],
+    "alarm clock": [
+        "clock"
+    ],
+    "horologe": [
+        "clock"
+    ],
+    "chronometer": [
+        "clock"
+    ],
+    "clepsydra": [
+        "clock"
+    ],
+    "wall clock": [
+        "clock"
+    ],
+    "cuckoo clock": [
+        "clock"
+    ],
+    "water glass": [
+        "clock"
+    ],
+    "movement": [
+        "clock"
+    ],
+    "analog clock": [
+        "clock"
+    ],
+    "alarm": [
+        "clock"
+    ],
+    "fusee drive": [
+        "clock"
+    ],
+    "timepiece": [
+        "clock"
+    ],
+    "fusee": [
+        "clock"
+    ],
+    "time clock": [
+        "clock"
+    ],
+    "electric clock": [
+        "clock"
+    ],
+    "bear": [
+        "bear"
+    ],
+    "carry": [
+        "bear"
+    ],
+    "feature": [
+        "bear"
+    ],
+    "chair": [
+        "chair"
+    ],
+    "leg": [
+        "chair"
+    ],
+    "feeding chair": [
+        "chair"
+    ],
+    "chair of state": [
+        "chair"
+    ],
+    "side chair": [
+        "chair"
+    ],
+    "rocker": [
+        "chair"
+    ],
+    "swivel chair": [
+        "chair"
+    ],
+    "wheelchair": [
+        "chair"
+    ],
+    "straight chair": [
+        "chair"
+    ],
+    "garden chair": [
+        "chair"
+    ],
+    "seat": [
+        "chair"
+    ],
+    "eames chair": [
+        "chair"
+    ],
+    "folding chair": [
+        "chair"
+    ],
+    "armchair": [
+        "chair"
+    ],
+    "chaise longue": [
+        "chair"
+    ],
+    "backrest": [
+        "chair"
+    ],
+    "rocking chair": [
+        "chair"
+    ],
+    "fighting chair": [
+        "chair"
+    ],
+    "ladder-back": [
+        "chair"
+    ],
+    "daybed": [
+        "chair"
+    ],
+    "barber chair": [
+        "chair"
+    ],
+    "tablet-armed chair": [
+        "chair"
+    ],
+    "back": [
+        "chair"
+    ],
+    "chaise": [
+        "chair"
+    ],
+    "lawn chair": [
+        "chair"
+    ],
+    "ladder-back chair": [
+        "chair"
+    ],
+    "highchair": [
+        "chair"
+    ],
+    "cup": [
+        "cup"
+    ],
+    "crockery": [
+        "cup"
+    ],
+    "paper cup": [
+        "cup"
+    ],
+    "grace cup": [
+        "cup"
+    ],
+    "scyphus": [
+        "cup"
+    ],
+    "teacup": [
+        "cup"
+    ],
+    "moustache cup": [
+        "cup"
+    ],
+    "dixie cup": [
+        "cup"
+    ],
+    "coffee cup": [
+        "cup"
+    ],
+    "chalice": [
+        "cup"
+    ],
+    "beaker": [
+        "cup"
+    ],
+    "dishware": [
+        "cup"
+    ],
+    "goblet": [
+        "cup"
+    ],
+    "container": [
+        "cup"
+    ],
+    "cylix": [
+        "cup"
+    ],
+    "kylix": [
+        "cup"
+    ],
+    "mustache cup": [
+        "cup"
+    ],
+    "bird": [
+        "bird"
+    ],
+    "aves": [
+        "bird"
+    ],
+    "archaeornis": [
+        "bird"
+    ],
+    "archeopteryx": [
+        "bird"
+    ],
+    "passerine": [
+        "bird"
+    ],
+    "flock": [
+        "bird"
+    ],
+    "dicky-bird": [
+        "bird"
+    ],
+    "neb": [
+        "bird"
+    ],
+    "carinate bird": [
+        "bird"
+    ],
+    "sinornis": [
+        "bird"
+    ],
+    "rump": [
+        "bird"
+    ],
+    "cuculiform bird": [
+        "bird"
+    ],
+    "syrinx": [
+        "bird"
+    ],
+    "caprimulgiform bird": [
+        "bird"
+    ],
+    "bill": [
+        "bird"
+    ],
+    "fowl": [
+        "bird"
+    ],
+    "hindquarters": [
+        "bird"
+    ],
+    "feather": [
+        "bird"
+    ],
+    "coraciiform bird": [
+        "bird"
+    ],
+    "dickybird": [
+        "bird"
+    ],
+    "uropygium": [
+        "bird"
+    ],
+    "hen": [
+        "bird"
+    ],
+    "raptor": [
+        "bird"
+    ],
+    "apodiform bird": [
+        "bird"
+    ],
+    "parrot": [
+        "bird"
+    ],
+    "plumage": [
+        "bird"
+    ],
+    "flying bird": [
+        "bird"
+    ],
+    "ratite bird": [
+        "bird"
+    ],
+    "croup": [
+        "bird"
+    ],
+    "gallinaceous bird": [
+        "bird"
+    ],
+    "carinate": [
+        "bird"
+    ],
+    "beak": [
+        "bird"
+    ],
+    "bird of prey": [
+        "bird"
+    ],
+    "archaeopteryx": [
+        "bird"
+    ],
+    "nonpasserine bird": [
+        "bird"
+    ],
+    "croupe": [
+        "bird"
+    ],
+    "bird's foot": [
+        "bird"
+    ],
+    "uropygial gland": [
+        "bird"
+    ],
+    "protoavis": [
+        "bird"
+    ],
+    "furcula": [
+        "bird"
+    ],
+    "nester": [
+        "bird"
+    ],
+    "piciform bird": [
+        "bird"
+    ],
+    "night bird": [
+        "bird"
+    ],
+    "pinion": [
+        "bird"
+    ],
+    "vertebrate": [
+        "bird"
+    ],
+    "trogon": [
+        "bird"
+    ],
+    "twitterer": [
+        "bird"
+    ],
+    "preen gland": [
+        "bird"
+    ],
+    "passeriform bird": [
+        "bird"
+    ],
+    "pecker": [
+        "bird"
+    ],
+    "class aves": [
+        "bird"
+    ],
+    "dickey-bird": [
+        "bird"
+    ],
+    "air sac": [
+        "bird"
+    ],
+    "bird of passage": [
+        "bird"
+    ],
+    "nib": [
+        "bird"
+    ],
+    "dickeybird": [
+        "bird"
+    ],
+    "pennon": [
+        "bird"
+    ],
+    "aquatic bird": [
+        "bird"
+    ],
+    "flightless bird": [
+        "bird"
+    ],
+    "raptorial bird": [
+        "bird"
+    ],
+    "ratite": [
+        "bird"
+    ],
+    "craniate": [
+        "bird"
+    ],
+    "archaeopteryx lithographica": [
+        "bird"
+    ],
+    "cock": [
+        "bird"
+    ],
+    "ibero-mesornis": [
+        "bird"
+    ],
+    "plume": [
+        "bird"
+    ],
+    "gallinacean": [
+        "bird"
+    ],
+    "dining table": [
+        "dining table"
+    ],
+    "dining": [
+        "dining table"
+    ],
+    "feeding": [
+        "dining table"
+    ],
+    "dutch treat": [
+        "dining table"
+    ],
+    "eating": [
+        "dining table"
+    ],
+    "table": [
+        "dining table"
+    ],
+    "tabular array": [
+        "dining table"
+    ],
+    "periodic table": [
+        "dining table"
+    ],
+    "array": [
+        "dining table"
+    ],
+    "table of contents": [
+        "dining table"
+    ],
+    "contents": [
+        "dining table"
+    ],
+    "statistical table": [
+        "dining table"
+    ],
+    "correlation table": [
+        "dining table"
+    ],
+    "row": [
+        "dining table"
+    ],
+    "actuarial table": [
+        "dining table"
+    ],
+    "calendar": [
+        "dining table"
+    ],
+    "file allocation table": [
+        "dining table"
+    ],
+    "column": [
+        "dining table"
+    ]
+}

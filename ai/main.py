@@ -32,13 +32,19 @@ async def post(data: Data):
     # send image to data analysis models
 
     # object detection
-    captions = []
     image = cv.imread(image_path)
-    captions.append(obj_detect.get_object_captions(image))
-    print(data.uuid + ' ' + str(captions))
+    captions = obj_detect.get_object_captions(image)
+    
+    # print(data.uuid + ' ' + str(captions))
 
     # text detection
     # TODO
+    '''
+        merge caption output from text detector with captions so it is
+        a 2-d array, an outer list containing multiple inner lists of 
+        the form [caption, confidence]
+    '''
+
     # add captions to data_dict
     data_dict["captions"] = captions
     final_data_dict_as_string = json.dumps(data_dict)
