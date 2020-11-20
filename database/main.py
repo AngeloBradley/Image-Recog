@@ -118,7 +118,8 @@ async def post(data: Data):
                 landed in the library as a synonym and is mapped only to other
                 captions.
             '''
-            dictionary[caption].append(caption)
+            if caption not in set(dictionary[caption]):
+                dictionary[caption].append(caption)
 
         except KeyError:
             # add caption to dictionary and map to set containing itself
