@@ -6,8 +6,20 @@ from PyDictionary import PyDictionary
 import cv2 as cv
 import numpy as np
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = ["http://localhost:3000", "http://localhost:8080"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
 cache_location = 'cache/'
 caption_pool_location = 'cache/caption_pool/'
 dictionary_file = 'cache/dictionary.json'
@@ -21,6 +33,9 @@ class Data(BaseModel):
     image: list
     image_shape: tuple
     captions: list
+
+class Query(BaseModel):
+    query: str
 
 def add_synonyms(caption, original_caption=None):
     synomyns = [x.lower() for x in PyDictionary().synonym(caption)]
@@ -85,6 +100,12 @@ def reduce_duplicate_captions(captions):
             seen[caption] = confidence
 
     return [[x, y] for x, y in seen.items()]
+
+@app.post("/search")
+async def get(query: Query):
+    query = query.dict()
+    query = query["query"]
+    return search(query)
 
 @app.post("/")
 async def post(data: Data):
@@ -231,7 +252,7 @@ def search(query):
 
         try:
             valid_terms = dictionary[term]
-            # print(valid_terms)
+            print(valid_terms)
 
             for v_term in valid_terms:
 
@@ -252,7 +273,7 @@ def search(query):
         except KeyError:
             # search term was not in dictionary, continue with the for loop
             continue
-
+    print(search_results)
     return search_results
 
 
@@ -276,4 +297,5 @@ def transmit_images_to_gui(search_results):
 
 
 if __name__ == "__main__":
+    load_dictionary_from_disk()
     uvicorn.run(app, port=8090, host="0.0.0.0")

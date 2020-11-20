@@ -36,7 +36,7 @@ export default function UploadButtons() {
     event.preventDefault();
     let image_data = new FormData();
     image_data.append('image', setFile);
-    let url = 'http://http://0.0.0.0:8080/';
+    let url = 'http://0.0.0.0:8080/';
 
     axios.post(url, image_data)
       .then(response => {

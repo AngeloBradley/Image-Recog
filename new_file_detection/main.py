@@ -28,7 +28,7 @@ def get_image_list():
 def image_processor():
     print('processing new images')
     # for i in range(len(to_be_processed)):
-    for i in range(10):
+    for i in range(30):
         uuid = str(uuid4())
         orig_name = to_be_processed[i]
         path = repo + to_be_processed[i]
@@ -61,13 +61,16 @@ def image_processor():
 
 def send_to_ai():
     print('sending processed images to ai')
+    counter = 0
     for image_data in to_be_processed:
     # for i in range(10):
         while True:
             try: 
+                if counter == 30: return
                 response = requests.post('http://localhost:8080', image_data)
                 # <Response 200> is the one you want
                 print(response)
+                counter = counter + 1
                 break
             except:
                 time.sleep(5)
