@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from os import error
 from PyDictionary import PyDictionary
 import cv2 as cv
+import base64
 import numpy as np
 import json
 from fastapi.middleware.cors import CORSMiddleware
@@ -111,9 +112,14 @@ async def get(query: Query):
 async def post(data: Data):
     data_dict = data.dict()
 
-    # add image file to cache
+    # add b64 version of image file to cache
     image = np.asarray(data.image)
-    cv.imwrite(cache_location + data.uuid + ".jpg", image)
+    _, buffer = cv.imencode('.jpg', image)
+    jpg_as_text = base64.b64encode(buffer)
+    with open(cache_location + data.uuid + ".txt", 'w') as image_file:
+        image_file.write(str(jpg_as_text))
+
+    # cv.imwrite(cache_location + data.uuid + ".jpg", image)
 
     # add metadata file to cache
     data_file = open(cache_location + data.uuid + ".json", "w")
@@ -178,7 +184,7 @@ async def post(data: Data):
                 caption_dot_text_data.append(l)
 
             # add new data to list
-            caption_dot_text_data.append([data.uuid + data.original_name[data.original_name.find('.'):], confidence])
+            caption_dot_text_data.append([data.uuid + '.txt', confidence])
 
             # sort images from highest to lowest using their confidence level as the point of comparison
             caption_dot_text_data = [[x, str(y)] for x, y in sorted(
@@ -209,7 +215,7 @@ async def post(data: Data):
                 caption_pool_location + caption + '.txt', 'w')
             # write caption info in the form -> "image_name confidence\n"
             caption_dot_text.write(
-                data.uuid + data.original_name[data.original_name.find('.'):] + ' ' + str(confidence))
+                data.uuid + '.txt' + ' ' + str(confidence))
             # close file
             caption_dot_text.close()
 
@@ -252,18 +258,16 @@ def search(query):
 
         try:
             valid_terms = dictionary[term]
-            print(valid_terms)
+            # print(valid_terms)
 
             for v_term in valid_terms:
 
                 with open(caption_pool_location + v_term + '.txt') as caption_dot_text:
                     images = caption_dot_text.readlines()
-
-                    # image format -> "uuid confidence"
+                    # image format -> "uuid.txt confidence"
                     for image in images:
                         # split image data into uuid and confidence
                         i = image.split(' ')
-                        # only store uuid
                         if i[0] in seen:
                             pass
                         else:
@@ -273,8 +277,8 @@ def search(query):
         except KeyError:
             # search term was not in dictionary, continue with the for loop
             continue
-    print(search_results)
-    return search_results
+    # print(search_results)
+    return gather_images_for_gui(search_results)
 
 
 def load_dictionary_from_disk():
@@ -284,18 +288,20 @@ def load_dictionary_from_disk():
         dictionary = json.load(df)
 
 
-def transmit_images_to_gui(search_results):
+def gather_images_for_gui(search_results):
+    image_data_b64 = []
     # iterate over search_results and load images
     for result in search_results:
-        image = cv.imread(result)
+        # print(result)
+        with open(cache_location + result) as r:
+            image_data_b64.append(r.read())
 
-        # convert to binary and then to base64
+    # print(image_data_b64)
+    return image_data_b64
 
-    # initiate a transmission for every image
-
-    pass
+    
 
 
 if __name__ == "__main__":
-    # load_dictionary_from_disk()
+    load_dictionary_from_disk()
     uvicorn.run(app, port=8090, host="0.0.0.0")
