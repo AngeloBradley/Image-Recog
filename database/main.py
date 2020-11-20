@@ -178,7 +178,7 @@ async def post(data: Data):
                 caption_dot_text_data.append(l)
 
             # add new data to list
-            caption_dot_text_data.append([data.uuid, confidence])
+            caption_dot_text_data.append([data.uuid + data.original_name[data.original_name.find('.'):], confidence])
 
             # sort images from highest to lowest using their confidence level as the point of comparison
             caption_dot_text_data = [[x, str(y)] for x, y in sorted(
@@ -297,5 +297,5 @@ def transmit_images_to_gui(search_results):
 
 
 if __name__ == "__main__":
-    load_dictionary_from_disk()
+    # load_dictionary_from_disk()
     uvicorn.run(app, port=8090, host="0.0.0.0")
