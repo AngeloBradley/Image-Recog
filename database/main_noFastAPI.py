@@ -171,7 +171,8 @@ def post(data: Data):
             caption_dot_text = open(
                 caption_pool_location + caption + '.txt', 'w')
             # write caption info in the form -> "image_name confidence\n"
-            caption_dot_text.write(data.uuid + data.original_name[data.original_name.find('.'):]+ ' ' + str(confidence))
+            caption_dot_text.write(
+                data.uuid + data.original_name[data.original_name.find('.'):] + ' ' + str(confidence))
             # close file
             caption_dot_text.close()
 
@@ -231,7 +232,7 @@ def search(query):
                         else:
                             seen.add(i[0])
                             search_results.append(i[0])
-            
+
         except KeyError:
             # search term was not in dictionary, continue with the for loop
             continue
@@ -245,16 +246,18 @@ def load_dictionary_from_disk():
     with open(dictionary_file, 'r') as df:
         dictionary = json.load(df)
 
+
 def transmit_images_to_gui(search_results):
-    #iterate over search_results and load images
+    # iterate over search_results and load images
     for result in search_results:
         image = cv.imread(result)
 
-        #convert to binary and then to base64
-        
-    #initiate a transmission for every image
-    
+        # convert to binary and then to base64
+
+    # initiate a transmission for every image
+
     pass
+
 
 if __name__ == "__main__":
     image = cv.imread('../Image Repository/image.jpg')

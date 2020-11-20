@@ -1,11 +1,13 @@
 from fastapi import FastAPI
 import uvicorn
 from pydantic import BaseModel
+import requests
 import cv2 as cv
 import numpy as np
-import json
 import obj_detect
-import base64
+from typing import Optional
+import time
+import json
 
 app = FastAPI()
 repo = "temp/"
@@ -33,13 +35,13 @@ async def post(data: Data):
     captions = []
     image = cv.imread(image_path)
     captions.append(obj_detect.get_object_captions(image))
-    print(captions)
-    # text detection
-    
+    print(data.uuid + ' ' + str(captions))
 
+    # text detection
+    # TODO
     # add captions to data_dict
     data_dict["captions"] = captions
-    final_data_dict_as_string = str(data_dict)
+    final_data_dict_as_string = json.dumps(data_dict)
 
     # create local copy of data file
     data_file = open(repo + data.uuid + ".txt", "w")
@@ -47,11 +49,29 @@ async def post(data: Data):
     data_file.close()
 
     # forward image data to database with captions
+    # final_data_dict_as_string = json.dumps(final_data_dict_as_string)
+    send_to_database(data_dict)
 
 
-@app.websocket("/ws")
-async def forward_to_database(data: str):
-    pass
+def send_to_database(image_data):
+    while True:
+        try:
+            # response = requests.post(
+            #     'http://localhost:8090/', json.dumps({
+            #         'original_name': 'hello world',
+            #         'uuid': '123456',
+            #         'image': [[1, 2, 3], [4, 5, 6]],
+            #         'image_shape': (12, 15),
+            #         'captions': ['dog', 'cat']
+            #     }))
+            response = requests.post(
+                'http://0.0.0.0:8090/', json.dumps(image_data))
+            print(response)
+            break
+        except Exception as e:
+            # wait and try again
+            print(str(e))
+            time.sleep(5)
 
 
 if __name__ == "__main__":

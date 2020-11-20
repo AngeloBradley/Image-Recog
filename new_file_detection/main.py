@@ -62,10 +62,15 @@ def image_processor():
 def send_to_ai():
     print('sending processed images to ai')
     for image_data in to_be_processed:
-        response = requests.post('http://localhost:8080', image_data)
-        # <Response 200> is the one you want
-        print(response)
-        time.sleep(5)
+    # for i in range(10):
+        while True:
+            try: 
+                response = requests.post('http://localhost:8080', image_data)
+                # <Response 200> is the one you want
+                print(response)
+                break
+            except:
+                time.sleep(5)
 
 
 if __name__ == "__main__":
