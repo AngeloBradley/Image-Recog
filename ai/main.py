@@ -37,9 +37,9 @@ async def post(data: Data):
     captions = obj_detect.get_object_captions(image)
 
     # text detection
-    txt_captions = txt_detect(image)    
-    if txt_captions is not []:
-        captions = captions + txt_detect()
+    # txt_captions = txt_detect()  
+    # if txt_captions is not []:
+    #     captions = captions + txt_detect()
 
     # add captions to data_dict
     data_dict["captions"] = captions
