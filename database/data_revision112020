@@ -1,0 +1,10 @@
+Proposed Changes:
+-- since detectron is limited to the 200 or so captions in the COCO_Categories list, it 
+isn't necessary to build the dictionary dynamically as images are added to the database.
+Instead, the database server can create the dictionary upon it's first run and attempt
+to load the dictinoary.json file on each subsequent run. 
+-- for similar reasons as stated above, the caption pool directory can be pre-populated
+with caption.txt files.
+-- the process for adding images to the database will become much simpler as a result. 
+An image's captions will still need to be passed through the caption reducer method, 
+but afterwards, the image will just need to be added to appropriate caption.txt file.
