@@ -16,9 +16,12 @@ def load_coco_captions():
     global captions
     captions = [x["name"] for x in COCO_CATEGORIES]
 
+####################################### Check/Build Dictionary #######################################
+
 def verify_dictionary_json():
     global dictionary
     global captions
+    global dictionary_file
 
     try:
         # open dictionary file
@@ -49,6 +52,8 @@ def verify_dictionary_json():
 
 
 def add_synonyms(caption):
+    global dictionary
+
     caption_split = caption.split(' ')
 
     for c_s in caption_split:
@@ -72,6 +77,9 @@ def add_synonyms(caption):
 
 def populate_dictionary_in_memory():
     global captions
+    global dictionary
+    global dictionary_file
+
     for caption in captions:
         ''' 
         check to see if a coco caption has already been added 
@@ -101,12 +109,25 @@ def create_dictionary():
     populate_dictionary_in_memory()
     write_dictionary_to_disk()
 
+####################################### Populate Caption Pool #######################################
+
+def check_caption_pool():
+    global captions
+
+    for caption in captions:
+        try:
+            caption_dot_text = open(caption_pool_location + caption + '.txt', 'r')
+        except IOError:
+            caption_dot_text = open(caption_pool_location + caption + '.txt', 'w')
+            caption_dot_text.close()
 
 
+####################################### Initialize Database #######################################
 def init_database():
     load_coco_captions()
     if not verify_dictionary_json():
         create_dictionary()
+    check_caption_pool()
 
 
 if __name__ == "__main__":
