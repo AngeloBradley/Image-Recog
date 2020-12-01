@@ -2,7 +2,7 @@ from fastapi import FastAPI, WebSocket
 import uvicorn
 from pydantic import BaseModel
 from os import error
-from PyDictionary import PyDictionary
+
 import cv2 as cv
 import base64
 import numpy as np
@@ -21,12 +21,8 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-cache_location = 'cache/'
+
 caption_pool_location = 'cache/caption_pool/'
-dictionary_file = 'cache/dictionary.json'
-official_captions_file = 'cache/official_captions.txt'
-official_captions_set = set()
-dictionary = dict()
 
 class Data(BaseModel):
     original_name: str
@@ -38,46 +34,10 @@ class Data(BaseModel):
 class Query(BaseModel):
     query: str
 
-def add_synonyms(caption, original_caption=None):
-    synomyns = [x.lower() for x in PyDictionary().synonym(caption)]
-    if synomyns is not None:
-        for synonym in synomyns:
-            if synonym in dictionary:
-                # if the synonym is in the dictionary, attempt to
-                # add caption to the word's caption set
-                # set synonym to lowercase so search is not case sensitive
-                if original_caption not in set(dictionary[synonym]):
-                    dictionary[synonym].append(original_caption)
-            else:
-                # if the synonym is not in the dictionary,
-                # map the synonym to a set containing the caption
-                # set synonym to lowercase so search is not case sensitive
-                dictionary[synonym] = [original_caption]
-    else:
-        # do nothing
-        pass
 
 
-def add_words_to_dictionary(caption, original_caption=None):
-    if type(caption) == type([]):
-        for caption_term in caption:
-            if caption_term in dictionary:
-                if caption_term not in set(dictionary[caption_term]):
-                    dictionary[caption_term].append(original_caption)
-            else:
-                dictionary[caption_term] = [original_caption]
-                add_synonyms(caption_term, original_caption=original_caption)
-    else:
-        # generate synonyms for the caption and add to dictionary
-        add_synonyms(caption, original_caption=caption)
 
 
-def write_dictionary_to_disk():
-    with open(dictionary_file, 'r+') as d:
-        d.truncate()
-
-    with open(dictionary_file, 'w') as d:
-        d.write(json.dumps(dictionary))
 
 def reduce_duplicate_captions(captions):
     seen = {}

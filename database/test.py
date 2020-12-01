@@ -45,42 +45,48 @@
 # print("assembly for appending item to list")
 # dis.dis(b)
 
-import cv2
-import sys
-import base64
-import json
+# import cv2
+# import sys
+# import base64
+# import json
 
-orig_image = cv2.imread('cache/5ad38c9f-1dcf-47b8-b21b-97c171205cac.jpg')
-image_as_list = orig_image.tolist()
-image_as_bytes = orig_image.tobytes()
-image_as_base64= base64.b64encode(image_as_bytes)
-image_as_str_rep = json.dumps(image_as_list)
+# orig_image = cv2.imread('cache/5ad38c9f-1dcf-47b8-b21b-97c171205cac.jpg')
+# image_as_list = orig_image.tolist()
+# image_as_bytes = orig_image.tobytes()
+# image_as_base64= base64.b64encode(image_as_bytes)
+# image_as_str_rep = json.dumps(image_as_list)
 
-print('ORIGNAL IMAGE: ')
-print('type: ', type(orig_image))
-print('length: ' + str(len(orig_image)))
-print('size:', sys.getsizeof(orig_image))
-print()
+# print('ORIGNAL IMAGE: ')
+# print('type: ', type(orig_image))
+# print('length: ' + str(len(orig_image)))
+# print('size:', sys.getsizeof(orig_image))
+# print()
 
-print('IMAGE AS BYTES')
-print('type: ', type(image_as_bytes))
-print('length: ' + str(len(image_as_bytes)))
-print('size:', sys.getsizeof(image_as_bytes))
-print()
+# print('IMAGE AS BYTES')
+# print('type: ', type(image_as_bytes))
+# print('length: ' + str(len(image_as_bytes)))
+# print('size:', sys.getsizeof(image_as_bytes))
+# print()
 
-print('IMAGE IN BASE64 FROM BYTES')
-print('type: ', type(image_as_base64))
-print('length: ' + str(len(image_as_base64)))
-print('size:', sys.getsizeof(image_as_base64))
-print()
+# print('IMAGE IN BASE64 FROM BYTES')
+# print('type: ', type(image_as_base64))
+# print('length: ' + str(len(image_as_base64)))
+# print('size:', sys.getsizeof(image_as_base64))
+# print()
 
-print('IMAGE AS LIST')
-print('type: ', type(image_as_list))
-print('length: ' + str(len(image_as_list)))
-print('size:', sys.getsizeof(image_as_list))
-print()
+# print('IMAGE AS LIST')
+# print('type: ', type(image_as_list))
+# print('length: ' + str(len(image_as_list)))
+# print('size:', sys.getsizeof(image_as_list))
+# print()
 
-print('IMAGE AS STRING REP OF LIST')
-print('type: ', type(image_as_str_rep))
-print('length: ' + str(len(image_as_str_rep)))
-print('size:', sys.getsizeof(image_as_str_rep))
+# print('IMAGE AS STRING REP OF LIST')
+# print('type: ', type(image_as_str_rep))
+# print('length: ' + str(len(image_as_str_rep)))
+# print('size:', sys.getsizeof(image_as_str_rep))
+
+# a = []
+
+# for b in a:
+#     print('blah')
+#     print(b)
