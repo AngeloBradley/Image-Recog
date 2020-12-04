@@ -8,3 +8,13 @@ with caption.txt files.
 -- the process for adding images to the database will become much simpler as a result. 
 An image's captions will still need to be passed through the caption reducer method, 
 but afterwards, the image will just need to be added to appropriate caption.txt file.
+
+-- changes to process when images arrive at database from ai
+    -- when an image arrives:
+        -- write image to file in base64 in cache
+        -- write metadata file in cache
+
+        -- extract captions from metadata file
+        -- send captions list to caption reduction method
+        -- iterate over captions list (post-reduction) and added
+        images to respective caption.txt files w confidence

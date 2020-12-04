@@ -8,6 +8,7 @@ import base64
 import numpy as np
 import json
 from fastapi.middleware.cors import CORSMiddleware
+from image_data_processing import data_processor
 
 app = FastAPI()
 
@@ -23,6 +24,7 @@ app.add_middleware(
 
 
 caption_pool_location = 'cache/caption_pool/'
+cache_location = 'cache/'
 
 class Data(BaseModel):
     original_name: str
@@ -70,114 +72,7 @@ async def get(query: Query):
 
 @app.post("/")
 async def post(data: Data):
-    data_dict = data.dict()
-
-    # add b64 version of image file to cache
-    image = np.asarray(data.image)
-    _, buffer = cv.imencode('.jpg', image)
-    jpg_as_text = base64.b64encode(buffer)
-    with open(cache_location + data.uuid + ".txt", 'w') as image_file:
-        image_file.write(str(jpg_as_text))
-
-    # cv.imwrite(cache_location + data.uuid + ".jpg", image)
-
-    # add metadata file to cache
-    data_file = open(cache_location + data.uuid + ".json", "w")
-    data_file.write(json.dumps(data_dict))
-    data_file.close()
-
-    # caption handler
-    caption_list = data.captions
-    caption_list = reduce_duplicate_captions(caption_list)
-    # caption_list format -> [caption_data1, caption_data2...]
-    # caption_data format -> [caption, confidence]
-
-    for caption_data in caption_list:
-
-        # Update the dictionary
-        caption = caption_data[0]
-        confidence = caption_data[1]
-        try:
-            '''
-                Try to map the caption to itself. If the caption is not in 
-                the dictionary, a KeyError will be thrown. The attempt to map
-                the caption to itself here is for a situation where a caption
-                landed in the library as a synonym and is mapped only to other
-                captions.
-            '''
-            if caption not in set(dictionary[caption]):
-                dictionary[caption].append(caption)
-
-        except KeyError:
-            # add caption to dictionary and map to set containing itself
-            dictionary[caption] = [caption]
-            # check caption for spaces or hyphens
-            # code expects there to be only dashes OR spaces, not both
-            caption_char_set = set(caption)
-            if ('-' in caption_char_set) or (' ' in caption_char_set):
-                caption_terms = None
-
-                if ('-') in caption_char_set:
-                    caption_terms = caption.split('-')
-                else:
-                    caption_terms = caption.split(' ')
-
-                add_words_to_dictionary(
-                    caption_terms, original_caption=caption)
-            else:
-                add_words_to_dictionary(caption)
-
-        write_dictionary_to_disk()
-
-        # Update official_captions file and caption pool
-        if caption in official_captions_set:
-            # read caption.text file line by line into a list, split each line into list by ' '
-            caption_dot_text = open(
-                caption_pool_location + caption + '.txt', 'r')
-            lines = caption_dot_text.readlines()
-            caption_dot_text.close()
-
-            caption_dot_text_data = []
-            for line in lines:
-                l = line.split(' ')
-                l[1] = float(l[1])
-                caption_dot_text_data.append(l)
-
-            # add new data to list
-            caption_dot_text_data.append([data.uuid + '.txt', confidence])
-
-            # sort images from highest to lowest using their confidence level as the point of comparison
-            caption_dot_text_data = [[x, str(y)] for x, y in sorted(
-                caption_dot_text_data, key=lambda x:x[1], reverse=True)]
-
-            # ditch original file contents
-            caption_dot_text = open(
-                caption_pool_location + caption + '.txt', 'r+')
-            caption_dot_text.truncate()
-            caption_dot_text.close()
-
-            # print back to file line by line ' '.join(caption_data) -> "image_name confidence\n"
-            caption_dot_text = open(
-                caption_pool_location + caption + '.txt', 'a')
-            for item in caption_dot_text_data:
-                caption_dot_text.write(' '.join(item) + '\n')
-            # close file
-            caption_dot_text.close()
-        else:
-            # update official_captions file and set
-            with open(official_captions_file, 'a') as ocf:
-                ocf.write(caption + '\n')
-
-            official_captions_set.add(caption)
-
-            # create new caption.txt file
-            caption_dot_text = open(
-                caption_pool_location + caption + '.txt', 'w')
-            # write caption info in the form -> "image_name confidence\n"
-            caption_dot_text.write(
-                data.uuid + '.txt' + ' ' + str(confidence))
-            # close file
-            caption_dot_text.close()
+    data_processor(data)
 
 
 def search(query):
