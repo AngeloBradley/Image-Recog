@@ -1,6 +1,11 @@
+from gen_cache_contents import dictionary
 
+caption_pool_location = 'cache/caption_pool/'
+cache_location = 'cache/'
 
 def gather_images_for_gui(search_results):
+    global cache_location
+
     image_data_b64 = []
     # iterate over search_results and load images
     for result in search_results:
@@ -12,6 +17,7 @@ def gather_images_for_gui(search_results):
     return image_data_b64
 
 def search(query):
+    global caption_pool_location
     '''
         this code assumes that the query has gone through some sort of security check and 
         that the query is made up only of words separated by spaces. Will add validation 
@@ -37,7 +43,8 @@ def search(query):
         confidence levels vary so wildly.
     '''
     # -------------------------------------------------------------------------------------
-
+    query = query.dict()
+    query = query["query"]
     search_terms = query.split(' ')
     search_results = []
     seen = set()

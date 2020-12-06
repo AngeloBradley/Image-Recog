@@ -108,52 +108,6 @@ def data_processor(data):
     # caption handler
     add_image_to_database(data)
 
-    caption_list = data.captions
-    caption_list = reduce_duplicate_captions(caption_list)
-    # caption_list format -> [caption_data1, caption_data2...]
-    # caption_data format -> [caption, confidence]
-
-    for caption_data in caption_list:
-
-        caption = caption_data[0]
-        confidence = caption_data[1]
-
-        # update caption.txt file
-        # read caption.txt file line by line into a list, split each line into list by ' '
-        caption_dot_text = open(
-            caption_pool_location + caption + '.txt', 'r')
-        lines = caption_dot_text.readlines()
-        caption_dot_text.close()
-        # convert caption.txt file data into list, converting confidences to floats for later sorting
-        caption_dot_text_data = []
-        for line in lines:
-            l = line.split(' ')
-            l[1] = float(l[1])
-            caption_dot_text_data.append(l)
-
-        # add new data to list
-        caption_dot_text_data.append([data.uuid + '.txt', confidence])
-
-        # sort images from highest to lowest using their confidence level as the point of comparison
-        # convert confidence levels back to strings after sorting is complete
-        # final list is the caption.txt data sorted from highest to lowest confidence levels
-        caption_dot_text_data = [[x, str(y)] for x, y in sorted(
-            caption_dot_text_data, key=lambda x:x[1], reverse=True)]
-
-        # ditch original file contents
-        caption_dot_text = open(
-            caption_pool_location + caption + '.txt', 'r+')
-        caption_dot_text.truncate()
-        caption_dot_text.close()
-
-        # print back to file line by line ' '.join(caption_data) -> "image_name confidence\n"
-        caption_dot_text = open(
-            caption_pool_location + caption + '.txt', 'a')
-        for item in caption_dot_text_data:
-            caption_dot_text.write(' '.join(item) + '\n')
-        # close file
-        caption_dot_text.close()
-
 
 if __name__ == '__main__':
     from pydantic import BaseModel

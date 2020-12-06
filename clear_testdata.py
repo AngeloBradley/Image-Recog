@@ -40,9 +40,9 @@ for root, dirs, files in os.walk(NFD_CACHE):
 # remove json metadata files from image repository
 clean_image_repository()
 
-# purge dictionary.json file
-with open(DATABASE_CACHE + 'dictionary.json', 'r+') as d:
-    d.truncate()
+# # purge dictionary.json file
+# with open(DATABASE_CACHE + 'dictionary.json', 'r+') as d:
+#     d.truncate()
 
 # # purge official_captions file
 # with open(DATABASE_CACHE + 'official_captions.txt', 'r+') as d:

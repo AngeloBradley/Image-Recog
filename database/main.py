@@ -20,10 +20,6 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-
-caption_pool_location = 'cache/caption_pool/'
-cache_location = 'cache/'
-
 class Data(BaseModel):
     original_name: str
     uuid: str
@@ -37,8 +33,6 @@ class Query(BaseModel):
 
 @app.post("/search")
 async def get(query: Query):
-    query = query.dict()
-    query = query["query"]
     return search(query)
 
 @app.post("/")
