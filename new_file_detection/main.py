@@ -7,11 +7,12 @@ import requests
 import time
 import base64
 
+
 database = {}
 to_be_processed = []
 repo = '../../Image Repository/'
 cache = 'cache/'
-IMAGE_TYPES = ('.jpeg', '.jpg', '.tiff')
+IMAGE_TYPES = ('.jpeg', '.jpg', '.tiff', '.png')
 
 
 def get_image_list():

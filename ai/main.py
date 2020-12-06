@@ -31,15 +31,22 @@ async def post(data: Data):
     cv.imwrite(image_path, image)
 
     # send image to data analysis models
+    # read in image and pass to models
+    image = cv.imread(image_path)
+
+    captions = []
 
     # object detection
-    image = cv.imread(image_path)
-    captions = obj_detect.get_object_captions(image)
+    obj_captions = obj_detect.get_object_captions(image)
+    if len(obj_captions) != 0:
+        captions = captions + obj_captions
 
     # text detection
-    # txt_captions = txt_detect()  
-    # if txt_captions is not []:
-    #     captions = captions + txt_detect()
+    txt_captions = txt_detect(image)  
+    if txt_captions is not []:
+        captions = captions + txt_captions
+
+    print(captions)
 
     # add captions to data_dict
     data_dict["captions"] = captions

@@ -1,14 +1,9 @@
-# Some basic setup:
-# Setup detectron2 logger
 import detectron2
 from detectron2.utils.logger import setup_logger
 setup_logger()
 
-# import some common libraries
 import numpy as np
 import os, json, cv2, random
-
-# import some common detectron2 utilities
 from detectron2 import model_zoo
 from detectron2.engine import DefaultPredictor
 from detectron2.config import get_cfg
@@ -43,12 +38,6 @@ def get_object_captions(image):
         caption_data.append(data)
 
     return caption_data
-
-    # v = Visualizer(image[:,:,::-1], MetadataCatalog.get(cfg.DATASETS.TRAIN[0]), scale=1.2)
-    # out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
-    # cv2.imshow('processed image', out.get_image()[:,:,::-1])
-    # cv2.waitKey(0)
-    # cv2.destroyAllWindows()
 
 
 if __name__ == '__main__':

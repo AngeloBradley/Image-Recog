@@ -1,25 +1,57 @@
+from typing import Dict
 import cv2
 import gray as gray
-import pytesseract
+from pytesseract import *
 import numpy as np
 from PIL import ImageGrab, Image
 import time
+from PyDictionary import PyDictionary as pd
+
+TEMP_DIR = 'temp/'
+pytesseract.tesseract_cmd = '/bin/tesseract'
+
+def filter_non_words(caption_data):
+    caption_list = []
+    
+    for data in caption_data:
+        if pd.meaning(data[0], disable_errors=True) is not None:
+            caption_list.append(data)
+
+    return caption_list
 
 def txt_detect(image):
-    return []
-    #pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
-    img = cv2.imread(image)
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    print(pytesseract.image_to_data(Image.open(img)))
+    img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    print('processing...')
 
-    # ##Detect words
-    # hImg, wImg,_ = img.shape
-    # kernel = np.ones((2, 1), np.uint8)
-    # #img = cv2.erode(gray, kernel, iterations=1)
-    # img = cv2.dilate(img, kernel, iterations=1)
-    # out_below = pytesseract.image_to_string(img)
-    # gray = cv2.cvtColor(np.float32(img), cv2.COLOR_RGB2GRAY)
-    # print("OUTPUT:", out_below)
+    # output image_to_data return value as python dictionary
+    detected_text = image_to_data(img, output_type=Output.DICT)
+
+    # set all text to lowercase in "text" list and normalize confidence levels in "conf" list
+    # zip both lists together, thus pairing detected text with associated confidence levels
+    text_and_confs = [list(x) for x in zip([x.lower() for x in detected_text['text']], [float(x)/100 for x in detected_text['conf']])]
+
+    # filter out all text with confidence levels lower than .3
+    text_and_confs = [x for x in text_and_confs if x[1] >= .3 and len(x[0]) > 0]
+    
+    return filter_non_words(text_and_confs)
+    
 
 if __name__ == '__main__':
-    txt_detect("temp/1cb3d439-1f2c-410c-bdd1-0c9b3110cb2d.jpg")
+    import os
+    import sys
+
+    def print_list(l):
+        for elem in l:
+            print(elem)
+
+    found = []
+    image = cv2.imread(TEMP_DIR + '03fc775d-870c-4665-b4a2-e631799dcc5a.jpg')
+    captions = txt_detect(image)
+    print_list(captions)
+    # txt_detect('4c7ad56c-8b20-4cdc-a941-65ac828fbd33.jpg')
+    # txt_detect('7d0b96ee-ece4-4cb8-af68-0c7d7fe16bbd.jpg')
+    # txt_detect('735f8dcd-779a-4c1a-a7a0-8e90a406b31d.jpg')
+    # txt_detect('6867136b-f115-4dda-9810-5c95b91525dc.jpg')
+    # txt_detect('a1b13ce1-9601-4bfd-b24b-0289b18bca88.jpg')
+    # txt_detect('a2cdc487-137b-41ec-8e7f-0765bb4db005.jpg')
+    # txt_detect('b0865f5e-cbea-4e55-b33d-3d73f2b89ef7.jpg')
