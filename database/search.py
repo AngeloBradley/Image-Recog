@@ -19,6 +19,8 @@ def gather_images_for_gui(search_results):
 
 def search(query):
     global caption_pool_location
+    print(query)
+    print(type(query))
     '''
         this code assumes that the query has gone through some sort of security check and 
         that the query is made up only of words separated by spaces. Will add validation 

@@ -106,7 +106,7 @@ def data_processor(data):
     image = cv.imwrite(thumb_image_path, image)
     
     # add metadata file to cache
-    url = "localhost:8090/"
+    url = "http://localhost:8090/"
     url_orig = url + orig_image_path
     url_thumb = url + thumb_image_path
     

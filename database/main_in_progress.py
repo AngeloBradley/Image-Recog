@@ -41,8 +41,6 @@ class Query(BaseModel):
 
 @app.post("/search")
 async def get(query: Query):
-    query = query.dict()
-    query = query["query"]
     return search(query)
 
 @app.post("/")

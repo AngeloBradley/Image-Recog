@@ -1,0 +1,1 @@
+{"src": "http://localhost:8090/cache/6688e7eb-06c6-450f-8ddc-0b0b2b736f2e.jpg", "thumbnail": "http://localhost:8090/cache/6688e7eb-06c6-450f-8ddc-0b0b2b736f2e_t.jpg", "thumbnailWidth": 300, "thumbnailHeight": 300}
