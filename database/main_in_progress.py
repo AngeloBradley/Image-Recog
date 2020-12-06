@@ -1,11 +1,13 @@
 from fastapi import FastAPI, WebSocket
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from pydantic import BaseModel
 from os import error
 
 from gen_cache_contents import init_database
-from image_data_processing import data_processor
+# from image_data_processing import data_processor
+from idp_in_progress import data_processor
 from search import search
 
 app = FastAPI()
@@ -19,6 +21,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+app.mount("/cache", StaticFiles(directory="cache"), name="cache")
 
 
 caption_pool_location = 'cache/caption_pool/'

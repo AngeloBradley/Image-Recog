@@ -1,4 +1,5 @@
-from gen_cache_contents import dictionary
+import gen_cache_contents as cache
+import json
 
 caption_pool_location = 'cache/caption_pool/'
 cache_location = 'cache/'
@@ -6,15 +7,15 @@ cache_location = 'cache/'
 def gather_images_for_gui(search_results):
     global cache_location
 
-    image_data_b64 = []
+    image_urls = []
     # iterate over search_results and load images
     for result in search_results:
         # print(result)
         with open(cache_location + result) as r:
-            image_data_b64.append(r.read())
+            image_urls.append(json.loads(r.read()))
 
     # print(image_data_b64)
-    return image_data_b64
+    return image_urls
 
 def search(query):
     global caption_pool_location
@@ -43,7 +44,11 @@ def search(query):
         confidence levels vary so wildly.
     '''
     # -------------------------------------------------------------------------------------
-    query = query.dict()
+    try:
+        query = query.dict()
+    except:
+        query = asdict(query)
+    
     query = query["query"]
     search_terms = query.split(' ')
     search_results = []
@@ -55,7 +60,7 @@ def search(query):
         # if the dictionary returns a value, store as valid_term
 
         try:
-            valid_terms = dictionary[term]
+            valid_terms = cache.dictionary[term]
             # print(valid_terms)
 
             for v_term in valid_terms:
@@ -72,8 +77,22 @@ def search(query):
                             seen.add(i[0])
                             search_results.append(i[0])
 
-        except KeyError:
+        except KeyError as k:
             # search term was not in dictionary, continue with the for loop
+            print("invalid search term")
             continue
     # print(search_results)
     return gather_images_for_gui(search_results)
+
+
+if __name__ == '__main__':
+    from dataclasses import dataclass, asdict
+
+    @dataclass
+    class Query():
+        query: str
+
+    with open(cache_location + 'dictionary.json') as d:
+        cache.dictionary = json.loads(d.read())
+    
+    print(search(Query('person')))

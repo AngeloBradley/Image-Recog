@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+var fs = require("fs")
 
 class Home extends Component {
   constructor(props) {
@@ -17,17 +18,19 @@ class Home extends Component {
   handleSubmit(event) {
     console.log(typeof ({ "query": this.state.value }));
     var query = { "query": this.state.value };
-    axios.post("http://localhost:8090/search", query).then(token => {
+    axios.post("http://localhost:5000", query).then(token => {
       console.log(token);
       console.log(token.data);
 
-      var imageElems = []
-      for(var i = 0; i < token.data.length; i++){
-        var img = document.createElement('img')
-      }
+      // for (var i = 0; i < token.data.length; i++) {
+      //   var data = token.data[i].replace(/^data:image\/\w+;base64,/, "");
+      //   var buf = new Buffer(data, 'base64');
+      //   fs.writeFile('image' + i + '.jpg', buf, function (err, result) {
+      //     if (err) { console.log('error', err); }
+      //   });
+      // }
 
     });
-    // console.log(response);
     event.preventDefault();
   }
 

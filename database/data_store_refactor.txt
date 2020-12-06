@@ -1,0 +1,11 @@
+src: b64 without line breaks, prepend "data:image/jpg;bas64, imagedata"
+thumbnail: b64 without line breaks, prepend "data:image/jpg;bas64, imagedata"
+thumbnailWidth: thumbnail.shape()[0]
+thumbnailHeight: thumbnail.shape()[1]
+caption: data.original_name
+tags: captions formatted as->
+    [
+        {value: caption, title: caption},
+        {value: caption, title: caption}
+    ]
+
