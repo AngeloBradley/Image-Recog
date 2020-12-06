@@ -44,6 +44,6 @@ clean_image_repository()
 with open(DATABASE_CACHE + 'dictionary.json', 'r+') as d:
     d.truncate()
 
-# purge official_captions file
-with open(DATABASE_CACHE + 'official_captions.txt', 'r+') as d:
-    d.truncate()
+# # purge official_captions file
+# with open(DATABASE_CACHE + 'official_captions.txt', 'r+') as d:
+#     d.truncate()

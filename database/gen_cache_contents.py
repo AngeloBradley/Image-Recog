@@ -28,9 +28,10 @@ def verify_dictionary_json():
         with open(dictionary_file, 'r') as d:
             dictionary_contents = d.read()
 
-            if len(dictionary_contents) != 0:
+            try:
+                # json.loads throws an error when the dictionary is empty
                 dictionary = json.loads(dictionary_contents)
-            else:
+            except:
                 # dictionary file exists but is empty
                 return False
 
@@ -118,6 +119,7 @@ def check_caption_pool():
         try:
             caption_dot_text = open(caption_pool_location + caption + '.txt', 'r')
         except IOError:
+            # create caption file
             caption_dot_text = open(caption_pool_location + caption + '.txt', 'w')
             caption_dot_text.close()
 

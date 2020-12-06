@@ -1,79 +1,15 @@
-from fastapi import FastAPI, WebSocket
-import uvicorn
-from pydantic import BaseModel
-from os import error
-
-import cv2 as cv
-import base64
-import numpy as np
-import json
-from fastapi.middleware.cors import CORSMiddleware
-from image_data_processing import data_processor
-
-app = FastAPI()
-
-origins = ["http://localhost:3000", "http://localhost:8080"]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"]
-)
 
 
-caption_pool_location = 'cache/caption_pool/'
-cache_location = 'cache/'
+def gather_images_for_gui(search_results):
+    image_data_b64 = []
+    # iterate over search_results and load images
+    for result in search_results:
+        # print(result)
+        with open(cache_location + result) as r:
+            image_data_b64.append(r.read())
 
-class Data(BaseModel):
-    original_name: str
-    uuid: str
-    image: list
-    image_shape: tuple
-    captions: list
-
-class Query(BaseModel):
-    query: str
-
-
-
-
-
-
-def reduce_duplicate_captions(captions):
-    seen = {}
-
-    for caption_data in captions:
-        caption = caption_data[0]
-        confidence = caption_data[1]
-
-        '''
-            for simplicity's sake, instances of duplicate captions (ie. an 
-            image was detected to have multiple instances of the same type of object
-            like an image with 3 people would have 3 "person" captions) are reduced
-            to a single caption with it's confidence assigned to the highest
-            confidence among the duplicates
-        '''
-
-        if caption in seen:
-            if seen[caption] < confidence:
-                seen[caption] = confidence
-        else:
-            seen[caption] = confidence
-
-    return [[x, y] for x, y in seen.items()]
-
-@app.post("/search")
-async def get(query: Query):
-    query = query.dict()
-    query = query["query"]
-    return search(query)
-
-@app.post("/")
-async def post(data: Data):
-    data_processor(data)
-
+    # print(image_data_b64)
+    return image_data_b64
 
 def search(query):
     '''
@@ -134,29 +70,3 @@ def search(query):
             continue
     # print(search_results)
     return gather_images_for_gui(search_results)
-
-
-def load_dictionary_from_disk():
-    global dictionary
-
-    with open(dictionary_file, 'r') as df:
-        dictionary = json.load(df)
-
-
-def gather_images_for_gui(search_results):
-    image_data_b64 = []
-    # iterate over search_results and load images
-    for result in search_results:
-        # print(result)
-        with open(cache_location + result) as r:
-            image_data_b64.append(r.read())
-
-    # print(image_data_b64)
-    return image_data_b64
-
-    
-
-
-if __name__ == "__main__":
-    # load_dictionary_from_disk()
-    uvicorn.run(app, port=8090, host="0.0.0.0")
