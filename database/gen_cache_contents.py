@@ -110,6 +110,30 @@ def create_dictionary():
     populate_dictionary_in_memory()
     write_dictionary_to_disk()
 
+def add_term_to_dictionary(term):
+    # update dictionary in memory
+    dictionary[term] = term
+
+    syns = PyDictionary.synonym(term)
+
+    if syns is None:
+        #nothing else to add, process complete
+        pass
+    else:
+        for syn in syns:
+            if syn in dictionary:
+                if term in dictionary[syn]:
+                    #do nothing, word already mapped to this term/caption
+                    pass
+                else:
+                    dictionary[syn].append(term)
+            else:
+                dictionary[syn] = term
+
+    # update dictionary on disk
+    write_dictionary_to_disk()
+    
+
 ####################################### Populate Caption Pool #######################################
 
 def check_caption_pool():
