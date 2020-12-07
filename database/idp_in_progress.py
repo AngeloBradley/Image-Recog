@@ -56,29 +56,34 @@ def add_image_to_database(data):
                 l[1] = float(l[1])
                 caption_dot_text_data.append(l)
 
-            # add new data to list
-            caption_dot_text_data.append([data.uuid + '.txt', confidence])
+                # add new data to list
+                caption_dot_text_data.append([data.uuid + '.txt', confidence])
 
-            # sort images from highest to lowest using their confidence level as the point of comparison
-            caption_dot_text_data = [[x, str(y)] for x, y in sorted(
-                caption_dot_text_data, key=lambda x:x[1], reverse=True)]
+                # sort images from highest to lowest using their confidence level as the point of comparison
+                caption_dot_text_data = [[x, str(y)] for x, y in sorted(
+                    caption_dot_text_data, key=lambda x:x[1], reverse=True)]
 
-            # ditch original file contents
-            caption_dot_text = open(
-                caption_pool_location + caption + '.txt', 'r+')
-            caption_dot_text.truncate()
-            caption_dot_text.close()
+                # ditch original file contents
+                caption_dot_text = open(
+                    caption_pool_location + caption + '.txt', 'r+')
+                caption_dot_text.truncate()
+                caption_dot_text.close()
 
-            # print back to file line by line ' '.join(caption_data) -> "image_name confidence\n"
+                # print back to file line by line ' '.join(caption_data) -> "image_name confidence\n"
+                caption_dot_text = open(
+                    caption_pool_location + caption + '.txt', 'w')
+                for item in caption_dot_text_data:
+                    caption_dot_text.write(' '.join(item) + '\n')
+                # close file
+                caption_dot_text.close()
+        except Exception as e:
             caption_dot_text = open(
                 caption_pool_location + caption + '.txt', 'w')
-            for item in caption_dot_text_data:
-                caption_dot_text.write(' '.join(item) + '\n')
-            # close file
-            caption_dot_text.close()
+            caption_dot_text.write(data.uuid + '.txt ' + str(confidence))
 
-        except Exception as e:
-            print(e)
+        
+
+        
 
 
 def data_processor(data):

@@ -1,10 +1,5 @@
-from typing import Dict
 import cv2
-import gray as gray
 from pytesseract import *
-import numpy as np
-from PIL import ImageGrab, Image
-import time
 from PyDictionary import PyDictionary as pd
 
 TEMP_DIR = 'temp/'
@@ -30,7 +25,7 @@ def txt_detect(image):
     # zip both lists together, thus pairing detected text with associated confidence levels
     text_and_confs = [list(x) for x in zip([x.lower() for x in detected_text['text']], [float(x)/100 for x in detected_text['conf']])]
 
-    # filter out all text with confidence levels lower than .3
+    # filter out all text with confidence levels lower than or equal to .3
     text_and_confs = [x for x in text_and_confs if x[1] >= .3 and len(x[0]) > 0]
     
     return filter_non_words(text_and_confs)
