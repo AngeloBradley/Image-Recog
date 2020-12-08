@@ -5,7 +5,6 @@ import cv2 as cv
 import json
 import requests
 import time
-import base64
 import sys
 
 database = {}
