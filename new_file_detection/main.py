@@ -76,8 +76,13 @@ def send_to_ai():
             except:
                 time.sleep(5)
 
-
 if __name__ == "__main__":
+    from os.path import isdir
+    from os import mkdir
+
+    if not isdir('../../Image Repository/'):
+        mkdir('../../Image Repository/')
+
     while True:
         get_image_list()
         image_processor()
