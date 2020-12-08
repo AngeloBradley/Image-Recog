@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import {render} from 'react-dom';
+import { render } from 'react-dom';
 import ReactDOM from 'react-dom'
 import axios from 'axios';
 import Gallery from 'react-grid-gallery';
+import Button from '@material-ui/core/Button';
 
-class Home extends Component {
+class Home extends React.Component { //changed Component to React.Component
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { images: this.props.images }; //changed { value: '' } to { images: this.props.images }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,6 +19,7 @@ class Home extends Component {
   }
 
   handleSubmit(event) {
+    console.log('hello world')
     console.log(typeof ({ "query": this.state.value }));
     var query = { "query": this.state.value };
     console.log(query)
@@ -26,8 +28,10 @@ class Home extends Component {
       console.log(token.data);
       const IMAGES = token.data;
 
-      ReactDOM.render(<Gallery images={IMAGES}></Gallery>, document.getElementById('imageGallery'))
-      
+      console.log(IMAGES)
+
+      ReactDOM.render(<Gallery images={IMAGES}></Gallery>, document.getElementById('root'))
+      console.log(IMAGES)
     });
     event.preventDefault();
   }
@@ -39,17 +43,28 @@ class Home extends Component {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center"
         }}
       >
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Image Search
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
+        <form>
+
+          <br /><br />
+          <br /><br />
+          <header><h1>Image Recog</h1></header>
+
+          <input
+            value={this.state.value}
+            onChange={this.handleChange}
+            placeholder="Enter an identifier"
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.handleSubmit}
+          >
+            Submit
+            </Button>
         </form>
-        <div id='imageGallery'></div>
+        <div id="imageGallery"></div>
       </div>
 
     );

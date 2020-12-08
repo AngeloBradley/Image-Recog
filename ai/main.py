@@ -1,4 +1,3 @@
-from txt_detect import txt_detect
 from fastapi import FastAPI
 import uvicorn
 from pydantic import BaseModel
@@ -6,6 +5,7 @@ import requests
 import cv2 as cv
 import numpy as np
 import obj_detect
+from txt_detect import txt_detect
 from typing import Optional
 import time
 import json

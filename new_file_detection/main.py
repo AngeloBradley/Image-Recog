@@ -6,13 +6,14 @@ import json
 import requests
 import time
 import base64
-
+import sys
 
 database = {}
 to_be_processed = []
 repo = '../../Image Repository/'
 cache = 'cache/'
 IMAGE_TYPES = ('.jpeg', '.jpg', '.tiff', '.png')
+PROCESS_LIMIT = range(100)
 
 
 def get_image_list():
@@ -29,7 +30,7 @@ def get_image_list():
 def image_processor():
     print('processing new images')
     # for i in range(len(to_be_processed)):
-    for i in range(30):
+    for i in PROCESS_LIMIT: #due to space constraints on dev pc, image processing is limited to the first 100 new images
         uuid = str(uuid4())
         orig_name = to_be_processed[i]
         path = repo + to_be_processed[i]
@@ -63,12 +64,12 @@ def image_processor():
 def send_to_ai():
     print('sending processed images to ai')
     counter = 0
-    for image_data in to_be_processed:
-    # for i in range(10):
+    # for image_data in to_be_processed:
+    for i in PROCESS_LIMIT:
         while True:
             try: 
                 if counter == 30: return
-                response = requests.post('http://localhost:8080', image_data)
+                response = requests.post('http://localhost:8080', to_be_processed[i])
                 # <Response 200> is the one you want
                 print(response)
                 counter = counter + 1
@@ -82,4 +83,5 @@ if __name__ == "__main__":
         get_image_list()
         image_processor()
         send_to_ai()
+        sys.exit() #for development purposes, loop should sleep after each iteration rather than exit
         time.sleep(20)

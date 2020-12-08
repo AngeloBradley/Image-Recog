@@ -1,10 +1,6 @@
-from os import error
-
 import cv2 as cv
-import base64
 import numpy as np
 import json
-import sys
 
 caption_pool_location = 'cache/caption_pool/'
 cache_location = 'cache/'
@@ -32,20 +28,8 @@ def reduce_duplicate_captions(captions):
 
     return [[x, y] for x, y in seen.items()]
 
-
-def write_image_as_b64_to_file(image, uuid):
-    image = np.array(image)
-    _, buffer = cv.imencode('.jpg', image)
-    jpg_as_text = base64.b64encode(buffer)
-    with open(cache_location + uuid + '.txt', 'w') as image_file:
-        image_file.write(str(jpg_as_text))
-
-def write_metadata_to_file(data_dict, uuid):
-    data_file = open(cache_location + uuid + ".json", "w")
-    data_file.write(json.dumps(data_dict))
-    data_file.close()
-
 def add_image_to_database(data):
+    print('add_image_to_database running...')
     caption_list = data.captions
     caption_list = reduce_duplicate_captions(caption_list)
 
@@ -53,8 +37,10 @@ def add_image_to_database(data):
     # caption_data format -> [caption, confidence]
 
     for caption_data in caption_list:
+        print('updating caption pool')
         caption = caption_data[0]
         confidence = caption_data[1]
+        print(caption)
 
         try:
             # read caption.text file line by line into a list, split each line into list by ' '
@@ -89,9 +75,16 @@ def add_image_to_database(data):
                 caption_dot_text.write(' '.join(item) + '\n')
             # close file
             caption_dot_text.close()
-
         except Exception as e:
-            print(e)
+            print(e.with_traceback)
+            caption_dot_text = open(
+                caption_pool_location + caption + '.txt', 'w')
+            caption_dot_text.write(data.uuid + '.txt ' + str(confidence))
+
+        
+
+        
+
 
 def data_processor(data):
     try:
@@ -99,18 +92,45 @@ def data_processor(data):
     except:
         data_dict = asdict(data)
 
-    # add b64 version of image file to cach
-    write_image_as_b64_to_file(data.image, data.uuid)
+    #read image in as image file
+    image = np.asarray(data.image)
+    
+    # set paths
+    orig_image_path = cache_location + data.uuid + ".jpg"
+    thumb_image_path = cache_location + data.uuid + "_t.jpg"
+    # write original image to cache
+    cv.imwrite(orig_image_path, image)
 
+    # resize to make thumbnail
+    image = cv.imread(orig_image_path)
+
+    thumb_height = thumb_width = 300
+    image = cv.resize(image, (thumb_height, thumb_width), interpolation=cv.INTER_AREA)
+    
+    #write thumbnail to cache
+    image = cv.imwrite(thumb_image_path, image)
+    
     # add metadata file to cache
-    write_metadata_to_file(data_dict, data.uuid)
+    url = "http://localhost:8090/"
+    url_orig = url + orig_image_path
+    url_thumb = url + thumb_image_path
+    
+
+    image_data = {
+        "src": url_orig,
+        "thumbnail": url_thumb,
+        "thumbnailWidth": thumb_width,
+        "thumbnailHeight": thumb_height
+    }
+
+    with open(cache_location + data.uuid + '.txt', 'w') as file:
+        file.write(json.dumps(image_data))
 
     # caption handler
     add_image_to_database(data)
 
 
 if __name__ == '__main__':
-    from pydantic import BaseModel
     from dataclasses import dataclass, asdict
 
     @dataclass
@@ -144,4 +164,4 @@ if __name__ == '__main__':
     data2 = Data(data2['original_name'], data2['uuid'], data2['image'], data2['image_shape'], data2['captions'])
 
     data_processor(data1)
-    data_processor(data2)
+    # data_processor(data2)
