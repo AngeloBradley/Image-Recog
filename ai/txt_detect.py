@@ -40,7 +40,8 @@ if __name__ == '__main__':
             print(elem)
 
     found = []
-    image = cv2.imread(TEMP_DIR + '03fc775d-870c-4665-b4a2-e631799dcc5a.jpg')
+    # image = cv2.imread(TEMP_DIR + '03fc775d-870c-4665-b4a2-e631799dcc5a.jpg')
+    image = cv2.imread('../../Image Repository/u.jpg')
     captions = txt_detect(image)
     print_list(captions)
     # txt_detect('4c7ad56c-8b20-4cdc-a941-65ac828fbd33.jpg')

@@ -1,3 +1,11 @@
+#!/home/angelobradley/.virtualenvs/database/bin/python
+
+# activate the virtual environment
+activate_this = '/home/angelobradley/.virtualenvs/database/bin/activate_this.py'
+with open(activate_this) as f:
+    code = compile(f.read(), activate_this, 'exec')
+    exec(code, dict(__file__= activate_this))
+
 from fastapi import FastAPI, WebSocket
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -46,7 +54,9 @@ async def get(query: Query):
 async def post(data: Data):
     data_processor(data)
     
-
+def main():
+    init_database()
+    uvicorn.run(app, port=8090, host="0.0.0.0")
 
 if __name__ == "__main__":
     init_database()

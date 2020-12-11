@@ -1,3 +1,11 @@
+#!/home/angelobradley/.virtualenvs/ai/bin/python
+
+# activate the virtual environment
+activate_this = '/home/angelobradley/.virtualenvs/ai/bin/activate_this.py'
+with open(activate_this) as f:
+    code = compile(f.read(), activate_this, 'exec')
+    exec(code, dict(__file__= activate_this))
+
 from fastapi import FastAPI
 import uvicorn
 from pydantic import BaseModel
@@ -82,6 +90,8 @@ def send_to_database(image_data):
             print(str(e))
             time.sleep(5)
 
+def main():
+    uvicorn.run(app, port=8080, host="0.0.0.0")
 
 if __name__ == "__main__":
     uvicorn.run(app, port=8080, host="0.0.0.0")

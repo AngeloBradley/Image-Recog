@@ -1,3 +1,11 @@
+#!/home/angelobradley/.virtualenvs/nfd/bin/python
+
+# activate the virtual environment
+activate_this = '/home/angelobradley/.virtualenvs/nfd/bin/activate_this.py'
+with open(activate_this) as f:
+    code = compile(f.read(), activate_this, 'exec')
+    exec(code, dict(__file__= activate_this))
+
 from os import walk
 from os import rename
 from uuid import uuid4
@@ -75,6 +83,21 @@ def send_to_ai():
                 break
             except:
                 time.sleep(5)
+
+def main():
+    from os.path import isdir
+    from os import mkdir
+
+    if not isdir('../../Image Repository/'):
+        mkdir('../../Image Repository/')
+
+    while True:
+        get_image_list()
+        image_processor()
+        send_to_ai()
+        sys.exit() #for development purposes, loop should sleep after each iteration rather than exit
+        time.sleep(20)
+
 
 if __name__ == "__main__":
     from os.path import isdir

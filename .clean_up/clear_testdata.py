@@ -1,16 +1,16 @@
 import os
 from clean_repo import clean_image_repository
 
-AI_TEMP = 'ai/temp/'
+AI_TEMP = '../ai/temp/'
 
-CAPTION_POOL = 'database/cache/caption_pool/'
+CAPTION_POOL = '../database/cache/caption_pool/'
 
-DATABASE_CACHE = 'database/cache/'
+DATABASE_CACHE = '../database/cache/'
 DATABASE_CACHE_SAFE = ('dictionary.json', 'official_captions.txt')
 
-NFD_CACHE = 'new_file_detection/cache/'
+NFD_CACHE = '../new_file_detection/cache/'
 
-IMAGE_REPOSITORY = '../Image Repository/'
+IMAGE_REPOSITORY = '../../Image Repository/'
 
 # clear ai's temp folder
 for root, dirs, files in os.walk(AI_TEMP):
