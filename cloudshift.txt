@@ -1,0 +1,54 @@
+** the Acts can be assumed to be happening on different VM or in different containers, even if all are on the same VM
+
+################## ACT 0 ##################
+    - Scene 1
+        - a new file is uploaded to the source S3 bucket
+        - the upload triggers a lambda function
+
+################## ACT 1 (new file detection/lamda) ##################
+    - Scene 1
+        - downloads the image
+    - Scene 2
+        - generates UUID for image
+        - creates metadata file consisting of:
+            - uuid to associate with image
+            - original name of the image
+            - shape of the image
+    - Scene 3
+        - pushes the image and the metadata file to the target S3 bucket in a single batch operation, both with UUID as filename
+        - metadata file should have "metadata/" prefix
+        - image fie should have "image/" prefix
+        - deletes the image from the source bucket
+    - Scene 4
+        - puts a message in an SQS queue 1
+            - message is the complete filename/path of the image
+
+################## ACT 2 (object detection/vm) ##################
+** both the zipped and unzipped contents exceed the lambda quotas
+** removing opencv doesn't resolve the issue
+    - Scene 1
+        - downloads the image and metadata file from the target bucket
+    - Scene 2
+        - passes the image through the object detection algorithm
+        - retrieves captions from the algorithm
+    - Scene 3
+        - puts message in SQS queue 2
+            - complete filename of image
+            - list of captions
+
+
+
+Thoughts:
+- the first lambda function can poll the state of a master node and if the state is 'running', it will send a POST request to the node with the information that it needs about the new image
+- if the state is not 'running', it will attempt to start the master node
+    - after issuing the start command, it will continue polling the master node until it's state changes to 'running'
+- the master node will have to have a server running on it so that it can accept the request
+- the lambda function can either poll the server until somehow it is notified that the server is running and able to accept requests or it can continuously try the POST request until it gets a 200 response
+- the master node, once running, will continue to run for up to 30 minutes after the last POST request has been received
+- if no other POST requests have been received, the master node will shut itself down
+- in response to POST requests, the master node will spin up an agent node (or agent nodes) running the AI server and essentially do the same as the lambda function did for it.
+- the AI server needs to be compute optimized so you'd want it running for a little time as possible
+- the AI server can remain in a waiting stance for 5 minutes after it's last job has completed
+- after 5 minutes, either the agent node will shut itself down or the master node will shut it down
+    - if the agent node shuts itself down, it should alert the master node that it is about to do so
+- 

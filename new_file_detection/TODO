@@ -1,0 +1,6 @@
+- work out how to sync a local directory with the s3 bucket so that users can upload items to the s3 bucket just by putting them into the local directory (think: Google Drive local directory).
+    - What I've gathered so far for this:
+        - https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html
+        - https://pritul95.github.io/blogs/boto3/2020/08/01/refreshable-boto3-session/
+        - there are refreshable sessions in boto3 for dealing with temporary credentials
+        - you can create an IAM role for the boto3 session to ASSUME and boto3 will handle refreshing the credentials as needed
